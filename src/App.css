@@ -33,3 +33,28 @@ body {
   color: var(--main-text-color);
   background-color: var(--background-color);
 }
+
+/* global styles for Hamburger*/
+.hamburger-react {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.hamburger-react div:nth-child(1) {
+  top: 5px !important;
+  left: 5px !important;
+  width: 10px !important;
+}
+
+.hamburger-react div:nth-child(2) {
+  top: 9px !important;
+  left: 5px !important;
+  width: 10px !important;
+}
+
+.hamburger-react div:nth-child(3) {
+  top: 13px !important;
+  left: 5px !important;
+  width: 10px !important;
+}
+/* end global styles for Hamburger*/
