@@ -5,7 +5,7 @@ const path = {
   results: 'tests/results/',
 };
 
-export const getQuestions = async questionType => {
+const getQuestions = async questionType => {
   try {
     const { data } = axios.get(path.tests + questionType);
     return data;
@@ -14,7 +14,7 @@ export const getQuestions = async questionType => {
   }
 };
 
-export const getResults = async (questionType, answers) => {
+const getResults = async ({ questionType, answers }) => {
   try {
     const { data } = axios.post(path.results + questionType, answers);
     return data;
@@ -22,3 +22,7 @@ export const getResults = async (questionType, answers) => {
     throw error.message;
   }
 };
+
+const API = { getResults, getQuestions };
+
+export default API;
