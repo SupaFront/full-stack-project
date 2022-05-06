@@ -1,0 +1,30 @@
+@import "../../../styles/variables.css";
+
+.form {
+  padding: 40px 85px 80px;
+  text-align: center;
+  background-color: var(--secondary-background-color);
+  box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
+}
+
+.title {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.23;
+}
+
+.title span {
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.questText {
+  display: inline-block;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(2, 23, 42, 0.1);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.36;
+  letter-spacing: 0.02;
+}

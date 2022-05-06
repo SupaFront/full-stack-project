@@ -1,13 +1,16 @@
-import s from "./TestPage.module.css";
 import Button from "../../shared/components/Button";
+import QuestForm from "../../shared/components/QuestForm";
 
-const TestPage = (testPageName = "[_Testing theory_ ]") => {
+import s from "./TestPage.module.css";
+
+const TestPage = ({ testPageName = "[Testing theory_]" }) => {
   return (
-    <div>
-      <div class={s.wrapper}>
-        <h2>{testPageName}</h2>
+    <div className={s.container}>
+      <div className={s.wrapper}>
+        <h2 className={s.title}>{testPageName}</h2>
         <Button text="Finish test" />
       </div>
+      <QuestForm/>
     </div>
   );
 };

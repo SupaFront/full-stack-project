@@ -1,11 +1,19 @@
-const QuestForm = (questCount=1, questText) => {
+import QuestList from "../QuestList";
+
+import s from "./questForm.module.css";
+
+const QuestForm = ({ questCurrent = 1, questCount = 12, questText="What is regression testing?" }) => {
   return (
-      <form action="#">
-        <p>
-          Question <span>{questCount}</span> / 12
-        </p>
-        <h2>{questText}</h2>
+    <div>
+      <form className={s.form} action="#">
+        <h2 className={s.title}>
+          Question <span>{questCurrent}</span> / {questCount}
+        </h2>
+        <p className={s.questText}>{questText}</p>
+        <QuestList list={[]} />;
       </form>
+     
+    </div>
   );
 };
 
