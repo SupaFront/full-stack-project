@@ -19,12 +19,3 @@
   color: var(--accent-color);
 }
 
-.questText {
-  display: inline-block;
-  padding-bottom: 28px;
-  border-bottom: 1px solid rgba(2, 23, 42, 0.1);
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1.36;
-  letter-spacing: 0.02;
-}

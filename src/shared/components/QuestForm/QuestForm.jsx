@@ -1,6 +1,6 @@
 import QuestList from "../QuestList";
 import GetSvg from "../GetSvg";
-import Radiobuttons from "../Radiobuttons/Radiobuttons";
+import Radiobuttons from "../RadioButtonsList/RadioButtonsList";
 
 import s from "./questForm.module.css";
 
@@ -15,8 +15,7 @@ const QuestForm = ({
         <h2 className={s.title}>
           Question <span>{questCurrent}</span> / {questCount}
         </h2>
-        <p className={s.questText}>{questText}</p>
-        <QuestList list={[]} />
+        {/* <p className={s.questText}>{questText}</p> */}
         <Radiobuttons />
       </form>
       
