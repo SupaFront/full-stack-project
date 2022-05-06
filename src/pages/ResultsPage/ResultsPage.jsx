@@ -1,5 +1,11 @@
+import Diagram from '../../modules/Diagram/';
+
 function ResultsPage() {
-  return <div>ResultsPage</div>;
+  return (
+    <main>
+      <Diagram />
+    </main>
+  );
 }
 
 export default ResultsPage;
