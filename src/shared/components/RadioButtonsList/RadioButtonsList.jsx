@@ -4,11 +4,11 @@ import s from "./RadioButtonsList.module.css";
 
 import allTestArray from "./answers";
 
-const questCount=7;
 
 const Radiobuttons = ({
   questionText = allTestArray[questCount].question,
   answersList = allTestArray[questCount].answers,
+  questCount = 0
 }) => {
   const elements = answersList.map((item, index) => {
     return (

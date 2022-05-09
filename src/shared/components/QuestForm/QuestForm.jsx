@@ -1,24 +1,20 @@
-import QuestList from "../QuestList";
-import GetSvg from "../GetSvg";
 import Radiobuttons from "../RadioButtonsList/RadioButtonsList";
 
 import s from "./questForm.module.css";
 
-const QuestForm = ({
-  questCurrent = 1,
-  questCount = 12,
-  questText = "What is regression testing?",
-}) => {
+const QuestForm = ({ questCount, maxCount, questionText, answersList }) => {
   return (
     <div>
       <form className={s.form} action="#">
         <h2 className={s.title}>
-          Question <span>{questCurrent}</span> / {questCount}
+          Question <span>{questCount}</span> / {maxCount}
         </h2>
-        {/* <p className={s.questText}>{questText}</p> */}
-        <Radiobuttons />
+        <Radiobuttons
+          questCount={questCount}
+          questionText={questionText}
+          answersList={answersList}
+        />
       </form>
-      
     </div>
   );
 };

@@ -17,7 +17,7 @@ function Footer() {
 				</div>
 				<div className={ styles.container }>
 					<span>Developed with</span>
-					<GetSvg name="heart" width={ 16 } height={ 16 } className={ styles.heart } />
+					<GetSvg name="heart" width={ 16 } height={ 16 } className={ "heart" } />
 				</div>
 			</div>
 			<div className={ styles.teamContainer }>

@@ -1,7 +1,7 @@
 @import "../../../styles/variables.css";
 
 .btn {
-  width:180px;
+  width: 180px;
   padding: 17px 30px;
   border: 2px solid transparent;
   color: var(--secondary-background-color);
@@ -11,4 +11,38 @@
   font-weight: 500;
   letter-spacing: 0.02;
   line-height: 1.22;
+}
+
+.btn:hover {
+  color: var(--main-text-color);
+  background-color: var(--secondary-background-color);
+}
+
+.btnImgLeft,
+.btnImgRight {
+  width: 210px;
+  padding: 12px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--secondary-background-color);
+  fill: var(--secondary-background-color);
+  background-color: var(--accent-color);
+  border: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.02;
+  line-height: 1.17;
+}
+
+.btnImgRight { 
+  flex-direction: row-reverse;
+}
+
+.btnImgLeft:hover,
+.btnImgRight:hover {
+  background-color: var(--secondary-background-color);
+  fill: var(--main-text-color);
+  color: var(--main-text-color);
 }
