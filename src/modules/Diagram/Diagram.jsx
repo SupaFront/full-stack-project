@@ -1,8 +1,8 @@
 import { PieChart, Pie, Tooltip, Cell } from 'recharts';
 
 const data = [
-  { value: 9, name: `9% CORRECT` },
-  { value: 3, name: `3% INCORRECT` },
+  { value: 9, name: `CORRECT` },
+  { value: 3, name: `INCORRECT` },
 ];
 
 const COLORS = ['#FF6B01', '#D7D7D7'];
@@ -25,7 +25,7 @@ function Diagram() {
     <PieChart width={400} height={400}>
       <Pie
         dataKey="value"
-        isAnimationActive={false}
+        isAnimationActive={true}
         data={data}
         cx={200}
         cy={200}

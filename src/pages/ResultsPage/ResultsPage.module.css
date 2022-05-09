@@ -1,0 +1,61 @@
+.headline {
+    line-height: 1.22;
+    font-size: 12px;
+    font-weight: 700;
+};
+.title {
+    line-height: 1.22;
+    font-size: 10px;
+    text-transform: uppercase;
+};
+.results-stats {
+    line-height: 1.22;
+    font-size: 10px;
+    font-weight: 500;
+};
+.cat-pic {
+    height: 120px;
+    width: 120px;
+};
+.main-message {
+font-weight: 700;
+font-size: 16px;
+line-height: 1.22;
+};
+.secondary-mesage{
+    line-height: 1.22;
+    font-size: 10px;
+    font-weight: 500;
+};
+
+@media screen and (min-width: 768px) {
+    .headline {
+        font-size: 22px;
+    };
+    .title {
+        font-size: 14px;
+    };
+    .results-stats {
+        font-size: 16px;
+        font-weight: 700;
+    };
+    .cat-pic {
+        height: 176px;
+        width: 176px;
+    };
+    .main-message {
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 1.36;
+    };
+    .secondary-mesage {
+        line-height: 1.22;
+        font-size: 20px;
+        font-weight: 500;
+    };
+
+};
+
+@media screen and (min-width: 1080px) {
+
+}
