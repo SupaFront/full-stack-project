@@ -1,13 +1,13 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 
-import MainPage from './pages/MainPage';
-import AuthPage from './pages/AuthPage';
-import ContactsPage from './pages/ContactsPage';
-import ResultsPage from './pages/ResultsPage';
-import TestPage from './pages/TestPage';
-import UsefulInfoPage from './pages/UsefulInfoPage';
-import PublicRoute from './shared/components/PublicRoute/PublicRoute';
-import PrivateRoute from './shared/components/PrivateRoute/PrivateRoute';
+import MainPage from "./pages/MainPage";
+import AuthPage from "./pages/AuthPage";
+import ContactsPage from "./pages/ContactsPage";
+import ResultsPage from "./pages/ResultsPage";
+import TestPage from "./pages/TestPage";
+import UsefulInfoPage from "./pages/UsefulInfoPage";
+import PublicRoute from "./shared/components/PublicRoute/PublicRoute";
+import PrivateRoute from "./shared/components/PrivateRoute/PrivateRoute";
 
 const MyRoutes = () => {
   return (
@@ -15,6 +15,8 @@ const MyRoutes = () => {
       <Route element={<PublicRoute />}>
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/contacts" element={<ContactsPage />} />
+        {/* <Route path="/test" element={<TestPage />} />
+        <Route path="/" element={<MainPage />} /> */}
       </Route>
       <Route element={<PrivateRoute />}>
         <Route path="/" element={<MainPage />} />
