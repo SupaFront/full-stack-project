@@ -6,14 +6,14 @@ import MyRoutes from './Routes';
 import Footer from './modules/Footer';
 
 function App() {
-  return (
-    <div className="App">
-      <Header />
-      {/* <MyRoutes /> */}
-      <ResultsPage />
-      <Footer />
-    </div>
-  );
+	return (
+		<div className="App">
+			<Header />
+			<MyRoutes />
+			{/* <ResultsPage /> */ }
+			<Footer />
+		</div>
+	);
 }
 
 export default App;

@@ -1,7 +1,9 @@
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import Hamburger from 'hamburger-react';
 
 import useAuth from '../../shared/hooks/useAuth';
+import { logOutUser } from "../../redux/auth/auth-operations";
 
 import Logo from './Logo';
 import Navigation from './Navigation';
@@ -11,11 +13,16 @@ import GetSvg from '../../shared/components/GetSvg';
 import styles from './Header.module.css';
 
 function Header() {
+	const dispatch = useDispatch();
 	const isLoggedIn = useAuth();
 	const [ isOpen, setOpen ] = useState(false);
 
+	const onHandleClick = () => {
+		dispatch(logOutUser());
+	};
+
 	const renderLogoutButton = className => (
-		<button type="button" className={ className }>
+		<button type="button" className={ className } onClick={ onHandleClick }>
 			<GetSvg name="logout" width={ 16 } height={ 16 } className={ styles.logoutSvg } />
 		</button>
 	);
