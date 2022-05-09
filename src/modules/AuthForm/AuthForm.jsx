@@ -26,23 +26,23 @@ function AuthForm() {
 	const onHandleClick = (string, props) => {
 		console.log(props);
 
-		// if (!props.isValidating) {
-		// 	return;
-		// };
+		if (!props.isValidating) {
+			return;
+		};
 
-		// switch (string) {
-		// 	case "signIn":
-		// 		dispatch(logInUser(props.values));
-		// 		break;
+		switch (string) {
+			case "signIn":
+				dispatch(logInUser(props.values));
+				break;
 
-		// 	case "signUp":
-		// 		dispatch(registerUser(props.values));
-		// 		break;
+			case "signUp":
+				dispatch(registerUser(props.values));
+				break;
 
-		// 	default:
-		// 		return;
-		// }
-		// props.resetForm(initialValues);
+			default:
+				return;
+		}
+		props.resetForm(initialValues);
 	};
 
 
