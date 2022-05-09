@@ -39,10 +39,10 @@
   fill: var(--footer-text-color);
 }
 
-.heart {
+/* .heart {
   margin-left: 4px;
   fill: var(--accent-color);
-}
+} *//*Moved to GetSvg styles*/
 
 .teamLink {
   font-family: inherit;
