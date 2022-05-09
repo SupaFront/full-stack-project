@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setToken, unsetToken } from '../../API/auth';
+import API from '../../API/auth';
 import { logInUser, logOutUser, registerUser, getCurrentUser } from './auth-operations';
 
 const initialState = {
@@ -23,6 +23,7 @@ const authSlice = createSlice({
       state.user = { ...payload.user };
       state.token = payload.token;
       state.isLoggedIn = true;
+      API.setToken(payload.token);
     },
     [logInUser.pending]: (state, { payload }) => {
       state.loading = false;
