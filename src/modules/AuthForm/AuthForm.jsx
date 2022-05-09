@@ -23,20 +23,24 @@ function AuthForm() {
 
   const onHandleClick = (string, props) => {
     console.log(props);
-    // if (!props.isValidating) {
-    // 	return;
-    // };
-    // switch (string) {
-    // 	case "signIn":
-    // 		dispatch(logInUser(props.values));
-    // 		break;
-    // 	case "signUp":
-    // 		dispatch(registerUser(props.values));
-    // 		break;
-    // 	default:
-    // 		return;
-    // }
-    // props.resetForm(initialValues);
+
+    if (!props.isValidating) {
+      return;
+    }
+
+    switch (string) {
+      case 'signIn':
+        dispatch(logInUser(props.values));
+        break;
+
+      case 'signUp':
+        dispatch(registerUser(props.values));
+        break;
+
+      default:
+        return;
+    }
+    props.resetForm(initialValues);
   };
 
   return (
@@ -45,10 +49,10 @@ function AuthForm() {
       validationSchema={authValidationSchema}
       onSubmit={(values, { resetForm }) => {
         // if (isSignUp) {
-        //   dispatch(registerUser(values));
+        // 	dispatch(registerUser(values));
         // } else {
-        //   dispatch(logInUser(values));
-        // }
+        // 	dispatch(logInUser(values));
+        // };
         // resetForm(initialValues);
       }}
     >
@@ -72,7 +76,7 @@ function AuthForm() {
             <button
               type="button"
               className={styles.signin}
-              onClick={() => onHandleClick('signIn', formikProps.handleSubmit())}
+              onClick={() => onHandleClick('signIn', formikProps)}
             >
               Sign in
             </button>
