@@ -18,7 +18,8 @@ const loginUser = async user => {
     const { data } = await axios.post(path.login, user);
     return data;
   } catch (error) {
-    throw error.message;
+    const err = { ...error.response.data, status: error.response.status };
+    throw err;
   }
 };
 
@@ -27,7 +28,8 @@ const registerUser = async user => {
     const { data } = await axios.post(path.register, user);
     return data;
   } catch (error) {
-    throw error.message;
+    const err = { ...error.response.data, status: error.response.status };
+    throw err;
   }
 };
 
@@ -36,7 +38,8 @@ const getCurrentUser = async () => {
     const { data } = await axios.get(path.current);
     return data;
   } catch (error) {
-    throw error.message;
+    const err = { ...error.response.data, status: error.response.status };
+    throw err;
   }
 };
 
@@ -44,8 +47,9 @@ const logoutUser = async () => {
   try {
     await axios.post(path.logout);
     return 'success';
-  } catch (err) {
-    throw err.message;
+  } catch (error) {
+    const err = { ...error.response.data, status: error.response.status };
+    throw err;
   }
 };
 
