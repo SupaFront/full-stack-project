@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Formik, Form, FormikProps } from 'formik';
+import { Formik, Form } from 'formik';
 
 import { authValidationSchema } from '../../utils/authValidationSchema';
 import { registerUser, logInUser } from '../../redux/auth/auth-operations';
-import { getError } from "../../redux/auth/auth-selectors";
+import { getError, getUserId } from "../../redux/auth/auth-selectors";
 
 import FormikInput from '../../shared/components/FormikInput';
 
@@ -18,6 +18,8 @@ const initialValues = {
 function AuthForm() {
 	const dispatch = useDispatch();
 	const error = useSelector(getError);
+	const userId = useSelector(getUserId);
+	const [ isRegistered, setIsRegistered ] = useState(false);
 
 	const onHandleClick = (string, props) => {
 		if (!props.values.email || !props.values.password) {
@@ -31,10 +33,12 @@ function AuthForm() {
 		switch (string) {
 			case 'signIn':
 				dispatch(logInUser(props.values));
+				setIsRegistered(false);
 				break;
 
 			case 'signUp':
 				dispatch(registerUser(props.values));
+				userId && setIsRegistered(true);
 				break;
 
 			default:
@@ -47,14 +51,7 @@ function AuthForm() {
 		<Formik
 			initialValues={ initialValues }
 			validationSchema={ authValidationSchema }
-			onSubmit={ (values, { resetForm }) => {
-				// if (isSignUp) {
-				// 	dispatch(registerUser(values));
-				// } else {
-				// 	dispatch(logInUser(values));
-				// };
-				// resetForm(initialValues);
-			} }
+			onSubmit={ () => { } }
 		>
 			{ formikProps => (
 				<Form className={ styles.form }>
@@ -72,6 +69,15 @@ function AuthForm() {
 						inputClassName={ styles.field }
 						errorClassName={ styles.error }
 					/>
+
+					{ error && (
+						<p className={ styles.sorryText }>{ error.message }</p>
+					) }
+
+					{ isRegistered && (
+						<p className={ styles.sorryText }>Please, sign in to visit the site</p>
+					) }
+
 					<div className={ styles.buttonContainer }>
 						<button
 							type="button"

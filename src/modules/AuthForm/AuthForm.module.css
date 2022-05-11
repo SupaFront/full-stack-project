@@ -29,6 +29,11 @@
   color: red;
 }
 
+.sorryText {
+  text-align: center;
+  color: red;
+}
+
 .buttonContainer {
   margin-top: 20px;
 }

@@ -1,9 +1,16 @@
+import { useState } from "react";
 import AuthForm from "../../modules/AuthForm";
 import GetSvg from "../../shared/components/GetSvg";
 
 import styles from "./AuthPage.module.css";
 
 function AuthPage() {
+	const [ isGoogleButtonClicked, setIsGoogleButtonClicked ] = useState(false);
+
+	const onClickGoogleButton = () => {
+		setIsGoogleButtonClicked(true);
+	};
+
 	return (
 		<section className={ styles.authSection }>
 			<div>
@@ -17,10 +24,16 @@ function AuthPage() {
 			</div>
 			<div className={ styles.container }>
 				<p>You can use your Google Account to authorize:</p>
-				<button className={ styles.googleButton }>
-					<GetSvg name="google" width={ 18 } height={ 18 } className="googleIcon" />
-					Google
-				</button>
+				<div style={ { display: "flex", alignItems: "center" } }>
+					<button className={ styles.googleButton } onClick={ onClickGoogleButton }>
+						<GetSvg name="google" width={ 18 } height={ 18 } className="googleIcon" />
+						Google
+					</button>
+					{ isGoogleButtonClicked && (
+						<span style={ { color: "green" } }>Sorry, I'm not working now =\</span>
+					) }
+
+				</div>
 				<p>Or login to our app using e-mail and password:</p>
 				<AuthForm />
 			</div>
