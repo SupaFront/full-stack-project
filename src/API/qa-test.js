@@ -10,7 +10,8 @@ const getQuestions = async questionType => {
     const { data } = axios.get(path.tests + questionType);
     return data;
   } catch (error) {
-    throw error.message;
+    const err = { ...error.response.data, status: error.response.status };
+    throw err;
   }
 };
 
@@ -19,7 +20,8 @@ const getResults = async ({ questionType, answers }) => {
     const { data } = axios.post(path.results + questionType, answers);
     return data;
   } catch (error) {
-    throw error.message;
+    const err = { ...error.response.data, status: error.response.status };
+    throw err;
   }
 };
 
