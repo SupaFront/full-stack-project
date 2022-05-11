@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:3000/api/';
+axios.defaults.baseURL = 'https://fullstack-pro-test.herokuapp.com/api/';
 
 const path = {
   register: 'auth/register',
