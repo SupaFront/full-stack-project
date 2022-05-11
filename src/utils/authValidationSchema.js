@@ -3,11 +3,12 @@ import * as Yup from "yup";
 const errorMessage = {
 	email: "* Invalid email address.",
 	password:
-		"* Password must contain at least 6 characters.",
+		"* Password must contain at least 8 characters and contain letters and numbers.",
 	required: "* The field is required.",
 };
 
 const emailRegexp = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+const passwordRegexp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
 export const authValidationSchema = Yup.object().shape({
 	email: Yup.string()
@@ -17,6 +18,7 @@ export const authValidationSchema = Yup.object().shape({
 		.required(errorMessage.required),
 	password: Yup.string()
 		.trim()
-		.min(6, errorMessage.password)
+		.min(8, errorMessage.password)
+		.matches(passwordRegexp, errorMessage.password)
 		.required(errorMessage.required),
 });

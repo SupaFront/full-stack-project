@@ -1,5 +1,6 @@
 :root {
   --accent-color: #ff6b09;
+  --accent-hover-color: #f56709;
   --main-text-color: #000000;
   --secondary-text-color: #555555;
   --footer-text-color: rgba(255, 255, 255, 0.4);
@@ -8,5 +9,6 @@
   --secondary-background-color: #ffffff;
   --third-background-color: #02172a;
   --line-color: #e2e3e5;
-  --google-buttpn-color: #fafafa;
+  --secondary-button-color: #fafafa;
+  --secondary-button-hover-color: #f2f1f1;
 }

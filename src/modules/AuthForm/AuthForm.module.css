@@ -52,6 +52,16 @@
   background-color: var(--accent-color);
 }
 
+.signin:hover,
+.signin:focus {
+  background-color: var(--accent-hover-color);
+}
+
+.signup:hover,
+.signup:focus {
+  background-color: var(--secondary-button-hover-color);
+}
+
 @media screen and (min-width: 768px) {
   .form {
     margin-top: 32px;
@@ -70,6 +80,7 @@
   .signup {
     width: 210px;
     height: 60px;
+    cursor: pointer;
   }
 
   .signin {
