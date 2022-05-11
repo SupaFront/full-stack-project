@@ -12,7 +12,11 @@ const initialState = {
 const qaTests = createSlice({
   name: 'qaTests',
   initialState,
-  reducers: {},
+  reducers: {
+    clearQuestionsList: state => {
+      state.questions = initialState.questions;
+    },
+  },
   extraReducers: {
     [getTests.pending]: state => {
       state.loading = true;
@@ -20,7 +24,7 @@ const qaTests = createSlice({
     },
     [getTests.fulfilled]: (state, { payload }) => {
       state.loading = false;
-      state.questions = payload.questions;
+      state.questions = payload;
     },
     [getTests.pending]: (state, { payload }) => {
       state.loading = false;
@@ -41,4 +45,5 @@ const qaTests = createSlice({
   },
 });
 
+export const { clearQuestionsList } = qaTests.actions;
 export default qaTests.reducer;
