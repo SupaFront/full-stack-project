@@ -2,7 +2,7 @@ import { PieChart, Pie, Tooltip, Cell } from 'recharts';
 
 const data = [
   { value: 9, name: `CORRECT` },
-  { value: 3, name: `INCORRECT` },
+  { value: 5, name: `INCORRECT` },
 ];
 
 const COLORS = ['#FF6B01', '#D7D7D7'];
@@ -31,6 +31,7 @@ function Diagram() {
         cy={200}
         outerRadius={80}
         fill="#000"
+        labelLine={false}
         label={renderCustomizedLabel}
       >
         {data.map((entry, index) => (
