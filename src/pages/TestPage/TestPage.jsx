@@ -1,4 +1,5 @@
 import Button from "../../shared/components/Button";
+import ButtonArrowOnly from "../../shared/components/ButtonArrowOnly";
 import QuestForm from "../../shared/components/QuestForm";
 
 import s from "./TestPage.module.css";
@@ -11,7 +12,7 @@ const TestPage = ({ testPageName = "[Testing theory_]" }) => {
     <div className={s.container}>
       <div className={s.wrapper}>
         <h2 className={s.title}>{testPageName}</h2>
-        <Button text="Finish test" />
+        <Button className={s.finishBtn} text="Finish test" />
       </div>
       <QuestForm
         questCount={questCount + 1}
@@ -35,6 +36,18 @@ const TestPage = ({ testPageName = "[Testing theory_]" }) => {
           width={24}
           height={16}
           styles={"btnImgRight"}
+        />
+        <ButtonArrowOnly
+          imgName={"arrow-left"}
+          width={24}
+          height={16}
+          styles={"btnArrowLeft"}
+        />
+        <ButtonArrowOnly
+          imgName={"arrow-right"}
+          width={24}
+          height={16}
+          styles={"btnArrowRight"}
         />
       </div>
     </div>

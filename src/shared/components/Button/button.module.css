@@ -1,16 +1,10 @@
 @import "../../../styles/variables.css";
 
 .btn {
-  width: 180px;
-  padding: 17px 30px;
   border: 2px solid transparent;
   color: var(--secondary-background-color);
   background-color: var(--accent-color);
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.02;
-  line-height: 1.22;
 }
 
 .btn:hover {
@@ -20,8 +14,6 @@
 
 .btnImgLeft,
 .btnImgRight {
-  width: 210px;
-  padding: 12px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,13 +22,9 @@
   background-color: var(--accent-color);
   border: transparent;
   cursor: pointer;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.02;
-  line-height: 1.17;
 }
 
-.btnImgRight { 
+.btnImgRight {
   flex-direction: row-reverse;
 }
 
@@ -45,4 +33,41 @@
   background-color: var(--secondary-background-color);
   fill: var(--main-text-color);
   color: var(--main-text-color);
+}
+
+@media screen and (min-width: 320px) {
+  .btn {
+    width: 130px;
+    padding: 17px 14px;
+    font-size: 10px;
+
+  }
+
+  .btnImgLeft,
+  .btnImgRight {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .btn {
+    width: 180px;
+    padding: 17px 30px;
+    font-size: 14px;
+
+  }
+
+  .btnImgLeft,
+  .btnImgRight {
+    display: flex;
+
+    width: 210px;
+    padding: 12px 30px;
+
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.02;
+    line-height: 1.17;
+  }
+}
+@media screen and (min-width: 1280px) {
 }

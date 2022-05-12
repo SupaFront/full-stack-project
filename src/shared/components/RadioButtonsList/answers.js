@@ -1,5 +1,5 @@
 const allTestArray=[{
-    _id: '6272da62541aed4b347c0b1b',
+    _id: '6272da62541aed4b347c0b1b1',
     question: 'What are the main benefits of automated testing?',
     questionType: 'theory',
     answers: [
@@ -12,7 +12,7 @@ const allTestArray=[{
     ]
 },
 {
-    _id: '6272da62541aed4b347c0b36',
+    _id: '6272da62541aed4b347c0b362',
     question: 'Is a testing technique that involves testing with different ranges of valid and invalid inputs a specific module or component functionality?',
     questionType: 'theory',
     answers: [
@@ -25,7 +25,7 @@ const allTestArray=[{
     ]
 },
 {
-    _id: '6272da62541aed4b347c0b27',
+    _id: '6272da62541aed4b347c0b273',
     question: 'Testing outside of normal performance is',
     questionType: 'theory',
     answers: [
@@ -38,7 +38,7 @@ const allTestArray=[{
     ]
 },
 {
-    _id: '6272da62541aed4b347c0b1c',
+    _id: '6272da62541aed4b347c0b1c4',
     question: 'What are the main types of locators in Selenium?',
     questionType: 'theory',
     answers: [
@@ -51,7 +51,7 @@ const allTestArray=[{
     ]
 },
 {
-    _id: '6272da62541aed4b347c0b1e',
+    _id: '6272da62541aed4b347c0b1e5',
     question: 'Most often, viewing elements in the Google Chrome browser on windows is launched by the button',
     questionType: 'theory',
     answers: [
@@ -63,7 +63,7 @@ const allTestArray=[{
     ]
 },
 {
-    _id: '6272da62541aed4b347c0b2f',
+    _id: '6272da62541aed4b347c0b2f6',
     question: 'What is the order of priority testing?',
     questionType: 'theory',
     answers: [
@@ -76,7 +76,7 @@ const allTestArray=[{
     ]
 },
 {
-    _id: '6272da62541aed4b347c0b1f',
+    _id: '6272da62541aed4b347c0b1f7',
     question: 'Most often, viewing items in the Google Chrome browser on Mac is launched by this key combination',
     questionType: 'theory',
     answers: [
@@ -88,7 +88,7 @@ const allTestArray=[{
     ]
 },
 {
-    _id: '6272da62541aed4b347c0b22',
+    _id: '6272da62541aed4b347c0b228',
     question: 'navigate().refresh(). This navigation command in Selenium:',
     questionType: 'theory',
     answers: [
@@ -100,7 +100,7 @@ const allTestArray=[{
     ]
 },
 {
-    _id: '6272da62541aed4b347c0b35',
+    _id: '6272da62541aed4b347c0b359',
     question: 'Upon opening a link to a website, the user receives the message ‘This section of our website is under construction.‘’ Then what is this mistake?',
     questionType: 'theory',
     answers: [
@@ -112,7 +112,7 @@ const allTestArray=[{
     ]
 },
 {
-    _id: '6272da62541aed4b347c0b29',
+    _id: '6272da62541aed4b347c0b290',
     question: 'Checking the onBlur field is done',
     questionType: 'theory',
     answers: [

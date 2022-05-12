@@ -1,0 +1,33 @@
+@import "../../../styles/variables.css";
+
+@media screen and (min-width: 320px) {
+  .btnArrowLeft,
+  .btnArrowRight {
+    width: 55px;
+    height: 34px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-background-color);
+    fill: var(--secondary-background-color);
+    background-color: var(--accent-color);
+    border: transparent;
+    cursor: pointer;
+  }
+
+  .btnArrowLeft:hover,
+  .btnArrowRight:hover {
+    background-color: var(--secondary-background-color);
+    fill: var(--main-text-color);
+    color: var(--main-text-color);
+  }
+}
+@media screen and (min-width: 768px) {
+  .btnArrowLeft,
+  .btnArrowRight {
+    display: none;
+  }
+}
+@media screen and (min-width: 1280px) {
+}
