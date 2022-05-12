@@ -9,29 +9,33 @@ function ResultsPage() {
   const dispatch = useDispatch();
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.headline}>Results</h1>
-      <h2 className={styles.title}>{'[ TESTING THEORY_]'}</h2>
-      <Diagram />
-      <div>
-        <ul>
-          <li>
-            <p className={styles.stats}>Correct</p>
-          </li>
-          <li>
-            <p className={styles.stats}>Incorrect</p>
-          </li>
-        </ul>
+    <main>
+      <div className={styles.container}>
+        <h1 className={styles.headline}>Results</h1>
+        <h2 className={styles.title}>{'[ TESTING THEORY_]'}</h2>
+        <Diagram />
+        <div>
+          <div className={styles.statscontainer}>
+            <span className={styles.stats}>Correct answers - 9</span>
+            <span className={styles.stats}>Total questions - 12</span>
+          </div>
+        </div>
+        <div className={styles.lowestsect}>
+          <img src={catImage} className={styles.catpic} alt={'a cat'} />
+          <p className={styles.mainmessage}>Not Bad!</p>
+          <p className={styles.secondarymessage}>But you still need to learn some materials.</p>
+          <Link
+            className={styles.btn}
+            to="/test"
+            onClick={() => {
+              // dispatch(clearQuestionsList())
+            }}
+          >
+            Try again
+          </Link>
+        </div>
       </div>
-      <div>
-        <img src={catImage} className={styles.catpic} alt={'a cat'} />
-        <p className={styles.mainMessage}>Bad!</p>
-        <p className={styles.secondaryMessage}>You're the worst motherfucker QA!</p>
-        <Link to="/test" onClick={() => dispatch(clearQuestionsList())}>
-          Try again
-        </Link>
-      </div>
-    </div>
+    </main>
   );
 }
 
