@@ -31,6 +31,7 @@ function Diagram() {
         cy={200}
         outerRadius={80}
         fill="#000"
+        labelLine={false}
         label={renderCustomizedLabel}
       >
         {data.map((entry, index) => (
