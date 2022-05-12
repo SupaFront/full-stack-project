@@ -77,3 +77,245 @@ label {
   cursor: pointer;
   text-align: left;
 }
+
+@media screen and (min-width: 320px) {
+  .wrapper {
+
+    font-size: 14px;
+    letter-spacing: 0.04;
+    line-height: 1.21;
+    color: var(--main-text-color);
+  }
+  
+  .title {
+    margin-bottom: 32px;
+    /* margin-top: 0; */
+  
+    display: inline-block;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(2, 23, 42, 0.1);
+    font-size: 12px;
+   
+    font-weight: 700;
+    line-height: 1.36;
+    letter-spacing: 0.02;
+  }
+  .group {
+    max-width: 610px;
+    /*display: block;
+     justify-content: flex-start; */
+  }
+  
+  .radioItem {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  
+  .radioButtonItem {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .radioButtonItem:not(:last-child) {
+    margin-bottom: 14px;
+  }
+  
+  .radioItem + label {
+    display: flex;
+    align-items: center;
+    user-select: none;
+    color: var(--main-text-color);
+  }
+  
+  .radioItem + label::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid var(--main-text-color);
+    border-radius: 50%;
+    margin-right: 7px;
+    cursor: pointer;
+  }
+  
+  .radioItem:checked + label {
+    /* font-weight: bold; */
+    color: #fc842d;
+  }
+  
+  .radioItem:checked + label::before {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../../../images/svg/ellipse.svg");
+    background-size: 60% 60%;
+  }
+  
+  label {
+    cursor: pointer;
+    text-align: left;
+    font-size: 10px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .wrapper {
+
+    font-size: 14px;
+    letter-spacing: 0.04;
+    line-height: 1.21;
+    color: var(--main-text-color);
+  }
+  
+  .title {
+    margin-bottom: 32px;
+    /* margin-top: 0; */
+  
+    display: inline-block;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(2, 23, 42, 0.1);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.36;
+    letter-spacing: 0.02;
+  }
+  .group {
+    max-width: 610px;
+    /*display: block;
+     justify-content: flex-start; */
+  }
+  
+  .radioItem {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  
+  .radioButtonItem {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .radioButtonItem:not(:last-child) {
+    margin-bottom: 14px;
+  }
+  
+  .radioItem + label {
+    display: flex;
+    align-items: center;
+    user-select: none;
+    color: var(--main-text-color);
+  }
+  
+  .radioItem + label::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid var(--main-text-color);
+    border-radius: 50%;
+    margin-right: 7px;
+    cursor: pointer;
+  }
+  
+  .radioItem:checked + label {
+    /* font-weight: bold; */
+    color: #fc842d;
+  }
+  
+  .radioItem:checked + label::before {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../../../images/svg/ellipse.svg");
+    background-size: 60% 60%;
+  }
+  
+  label {
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+  }
+  
+}
+@media screen and (min-width: 1280px) {
+  .wrapper {
+
+    font-size: 14px;
+    letter-spacing: 0.04;
+    line-height: 1.21;
+    color: var(--main-text-color);
+  }
+  
+  .title {
+    margin-bottom: 32px;
+    /* margin-top: 0; */
+  
+    display: inline-block;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(2, 23, 42, 0.1);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.36;
+    letter-spacing: 0.02;
+  }
+  .group {
+    max-width: 610px;
+    /*display: block;
+     justify-content: flex-start; */
+  }
+  
+  .radioItem {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  
+  .radioButtonItem {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .radioButtonItem:not(:last-child) {
+    margin-bottom: 14px;
+  }
+  
+  .radioItem + label {
+    display: flex;
+    align-items: center;
+    user-select: none;
+    color: var(--main-text-color);
+  }
+  
+  .radioItem + label::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid var(--main-text-color);
+    border-radius: 50%;
+    margin-right: 7px;
+    cursor: pointer;
+  }
+  
+  .radioItem:checked + label {
+    /* font-weight: bold; */
+    color: #fc842d;
+  }
+  
+  .radioItem:checked + label::before {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../../../images/svg/ellipse.svg");
+    background-size: 60% 60%;
+  }
+  
+  label {
+    cursor: pointer;
+    text-align: left;
+  }
+}

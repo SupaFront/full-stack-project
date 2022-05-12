@@ -15,14 +15,14 @@ const MyRoutes = () => {
       <Route element={<PublicRoute />}>
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/contacts" element={<ContactsPage />} />
-        {/* <Route path="/test" element={<TestPage />} />
-        <Route path="/" element={<MainPage />} /> */}
+        <Route path="/test" element={<TestPage />} />/*///////////////////////////test*/
+        <Route path="/" element={<MainPage />} />/*/////////////////////////////////test*/
       </Route>
       <Route element={<PrivateRoute />}>
-        <Route path="/" element={<MainPage />} />
+        {/* <Route path="/" element={<MainPage />} /> */}
         <Route path="/results" element={<MainPage />} />
         <Route path="/useful-info" element={<UsefulInfoPage />} />
-        <Route path="/test" element={<TestPage />} />
+        {/* <Route path="/test" element={<TestPage />} /> */}
       </Route>
     </Routes>
   );

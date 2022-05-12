@@ -13,7 +13,7 @@ const Radiobuttons = ({
   const elements = answersList.map((item, index) => {
     return (
       // <div key={uuidv4()} className={s.radioButtonItem}>
-      <div key={allTestArray[questCount]._id} className={s.radioButtonItem}>
+      <div key={uuidv4()} className={s.radioButtonItem}>
         <input
           className={s.radioItem}
           type="radio"
@@ -21,7 +21,7 @@ const Radiobuttons = ({
           name="ritem"
           value={item}
         />
-        <label for={index}>{item}</label>
+        <label htmlFor={index}>{item}</label>
       </div>
     );
   });
