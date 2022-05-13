@@ -46,7 +46,14 @@ const TestPage = () => {
   path = isFinished ? "/results" : "/";
 
   const btnImgLeftStyle = currentQuest ? "btnImgLeft" : "btnImgLeftDisabled";
+  const btnImgRightStyle =
+    currentQuest === questCount ? "btnImgRightDisabled" : "btnImgRight";
 
+  const btnArrowLeftStyle = currentQuest
+    ? "btnArrowLeft"
+    : "btnArrowLeftDisabled";
+  const btnArrowRightStyle =
+    currentQuest === questCount ? "btnArrowRightDisabled" : "btnArrowRight";
 
   return (
     <div className={s.container}>
@@ -83,13 +90,13 @@ const TestPage = () => {
           imgName={"arrow-left"}
           width={24}
           height={16}
-          styles={"btnArrowLeft"}
+          styles={btnArrowLeftStyle}
         />
         <ButtonArrowOnly
           imgName={"arrow-right"}
           width={24}
           height={16}
-          styles={"btnArrowRight"}
+          styles={btnArrowRightStyle}
         />
       </div>
     </div>

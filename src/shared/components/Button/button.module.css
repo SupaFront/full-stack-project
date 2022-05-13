@@ -14,8 +14,7 @@
 }
 
 .btnImgLeft,
-.btnImgRight,
-.finishBtn {
+.btnImgRight {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,11 +30,15 @@
 }
 
 .btnImgLeft:hover,
-.btnImgRight:hover,
-.finishBtn:hover {
+.btnImgRight:hover {
   background-color: var(--secondary-background-color);
   fill: var(--main-text-color);
   color: var(--main-text-color);
+}
+
+.btnImgLeftDisabled {
+  composes: btnImgLeft;
+  background: var(--placeholder-color);
 }
 
 @media screen and (min-width: 320px) {
