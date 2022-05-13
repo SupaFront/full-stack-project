@@ -1,9 +1,16 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+
 import GetSvg from "../../shared/components/GetSvg";
+
+import {getTests} from "../../redux/qa-tests/qa-test-operations";
+
 
 import s from "./MainPage.module.css";
 
 const MainPage = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className={s.container}>
       <figure className={s.quoteWrapper}>
@@ -26,6 +33,7 @@ const MainPage = () => {
             width="24"
             height="16"
             className={"link"}
+            onClick={()=>dispatch(getTests)}
           />
         </Link>
         <Link className={s.orangeLink} to="/test">
