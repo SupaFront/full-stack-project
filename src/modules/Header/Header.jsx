@@ -23,7 +23,7 @@ function Header() {
 
 	const renderLogoutButton = className => (
 		<button type="button" className={ className } onClick={ onHandleClick }>
-			<GetSvg name="logout" width={ 16 } height={ 16 } className={ styles.logoutSvg } />
+			<GetSvg name="logout" width={ 16 } height={ 16 } className="logoutSvg" />
 		</button>
 	);
 
