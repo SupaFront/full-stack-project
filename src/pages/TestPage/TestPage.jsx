@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import Button from "../../shared/components/Button";
 import ButtonArrowOnly from "../../shared/components/ButtonArrowOnly";
 import QuestForm from "../../shared/components/QuestForm";
@@ -5,9 +7,18 @@ import QuestForm from "../../shared/components/QuestForm";
 import s from "./TestPage.module.css";
 
 import allTestArray from "../../shared/components/RadioButtonsList/answers"; //only for test
-const questCount = 2; //only for test
+
+const questCount = 0; //only for test
+
+import {getTests} from "../../redux/qa-tests/qa-test-operations";
 
 const TestPage = ({ testPageName = "[Testing theory_]" }) => {
+  const dispatch = useDispatch();
+
+  const testType = "tech";
+
+  useEffect(dispatch(getTests(testType)), []);
+
   return (
     <div className={s.container}>
       <div className={s.wrapper}>

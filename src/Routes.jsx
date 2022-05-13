@@ -22,7 +22,7 @@ const MyRoutes = () => {
         <Route path="/" element={<MainPage />} />
         <Route path="/results" element={<ResultsPage />} />
         <Route path="/useful-info" element={<UsefulInfoPage />} />
-        <Route path="/test" element={<TestPage />} />
+        <Route path="/test/:type" element={<TestPage />} />
       </Route>
       <Route path="/about-us" element={<ContactsPage />} />
     </Routes>
