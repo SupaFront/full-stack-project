@@ -31,7 +31,7 @@ const MainPage = () => {
           className={s.blackLink}
           // to="/test/tech"
           to="/test"
-          onClick={()=>{dispatch(writePath(questionType[0]));}}
+          // onClick={()=>{dispatch(writePath(questionType[0]));}}
         >
           QA technical training
           <GetSvg

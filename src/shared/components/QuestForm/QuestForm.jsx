@@ -1,6 +1,6 @@
 import Radiobuttons from "../RadioButtonsList/RadioButtonsList";
 
-import s from "./questForm.module.css";
+import s from "./QuestForm.module.css";
 
 const QuestForm = ({ questCount, maxCount, questionText, answersList }) => {
 	return (

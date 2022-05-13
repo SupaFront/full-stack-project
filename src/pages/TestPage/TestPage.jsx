@@ -1,5 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
+
 import Button from "../../shared/components/Button";
 import ButtonArrowOnly from "../../shared/components/ButtonArrowOnly";
 import QuestForm from "../../shared/components/QuestForm";
@@ -10,20 +12,28 @@ import allTestArray from "../../shared/components/RadioButtonsList/answers"; //o
 
 const questCount = 0; //only for test
 
-import {getTests} from "../../redux/qa-tests/qa-test-operations";
+let isFinished = false;
+let text;
+let path;
+
+const testType = "tech";
 
 const TestPage = ({ testPageName = "[Testing theory_]" }) => {
   const dispatch = useDispatch();
 
-  const testType = "tech";
+  // useEffect(dispatch(getTests(testType)), []);
 
-  useEffect(dispatch(getTests(testType)), []);
+  text = isFinished ? "Finish test" : "Cancel test";
+
+  path = isFinished ? "/results" : "/";
 
   return (
     <div className={s.container}>
       <div className={s.wrapper}>
         <h2 className={s.title}>{testPageName}</h2>
-        <Button className={s.finishBtn} text="Finish test" />
+        <NavLink to={path} className={s.btn}>
+          {text}
+        </NavLink>
       </div>
       <QuestForm
         questCount={questCount + 1}

@@ -1,6 +1,7 @@
 @import "../../../styles/variables.css";
 
 .btn {
+  display: inline-block;
   border: 2px solid transparent;
   color: var(--secondary-background-color);
   background-color: var(--accent-color);
@@ -13,7 +14,8 @@
 }
 
 .btnImgLeft,
-.btnImgRight {
+.btnImgRight,
+.finishBtn {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,7 +31,8 @@
 }
 
 .btnImgLeft:hover,
-.btnImgRight:hover {
+.btnImgRight:hover,
+.finishBtn:hover {
   background-color: var(--secondary-background-color);
   fill: var(--main-text-color);
   color: var(--main-text-color);
@@ -40,7 +43,6 @@
     width: 130px;
     padding: 17px 14px;
     font-size: 10px;
-
   }
 
   .btnImgLeft,
@@ -53,11 +55,11 @@
     width: 180px;
     padding: 17px 30px;
     font-size: 14px;
-
   }
 
   .btnImgLeft,
-  .btnImgRight {
+  .btnImgRight,
+  .finishBtn {
     display: flex;
 
     width: 210px;
