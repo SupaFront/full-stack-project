@@ -10,20 +10,23 @@ import PublicRoute from './shared/components/PublicRoute/PublicRoute';
 import PrivateRoute from './shared/components/PrivateRoute/PrivateRoute';
 
 const MyRoutes = () => {
-	return (
-		<Routes>
-			<Route element={ <PublicRoute /> }>
-				<Route path="/auth" element={ <AuthPage /> } />
-			</Route>
-			<Route element={ <PrivateRoute /> }>
-				<Route path="/" element={ <MainPage /> } />
-				<Route path="/results" element={ <ResultsPage /> } />
-				<Route path="/useful-info" element={ <UsefulInfoPage /> } />
-				<Route path="/test" element={ <TestPage /> } />
-			</Route>
-			<Route path="/about-us" element={ <AboutUsPage /> } />
-		</Routes>
-	);
+
+  return (
+    <Routes>
+      <Route element={<PublicRoute />}>
+        <Route path="/auth" element={<AuthPage />} />
+        {/* <Route path="/test" element={<TestPage />} />
+        <Route path="/" element={<MainPage />} /> */}
+      </Route>
+      <Route element={<PrivateRoute />}>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/results" element={<ResultsPage />} />
+        <Route path="/useful-info" element={<UsefulInfoPage />} />
+        <Route path="/test" element={<TestPage />} />
+      </Route>
+      <Route path="/about-us" element={<ContactsPage />} />
+    </Routes>
+  );
 };
 
 export default MyRoutes;
