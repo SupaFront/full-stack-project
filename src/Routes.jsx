@@ -14,6 +14,9 @@ const MyRoutes = () => {
     <Routes>
       <Route element={<PublicRoute />}>
         <Route path="/auth" element={<AuthPage />} />
+        {/* <Route path="/test" element={<TestPage />} />
+        <Route path="/" element={<MainPage />} /> */}
+
       </Route>
       <Route element={<PrivateRoute />}>
         <Route path="/" element={<MainPage />} />
