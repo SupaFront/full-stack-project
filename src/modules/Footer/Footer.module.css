@@ -34,16 +34,6 @@
   background-color: var(--footer-text-color);
 }
 
-.copyright {
-  margin-right: 4px;
-  fill: var(--footer-text-color);
-}
-
-/* .heart {
-  margin-left: 4px;
-  fill: var(--accent-color);
-} *//*Moved to GetSvg styles*/
-
 .teamLink {
   font-family: inherit;
   color: var(--footer-text-color);
