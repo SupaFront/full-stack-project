@@ -1,0 +1,131 @@
+.materialsSection {
+	padding: 40px 20px;
+	height: 445px;
+	background-image: url("../../images/materials/cactus-mobile.png");
+	background-repeat: no-repeat;
+	background-position: -311px 0px;
+}
+
+.titleContainer {
+	position: relative;
+	margin-bottom: 20px;
+	max-width: 129px;
+}
+
+.title {
+	font-weight: 700;
+	font-size: 18px;
+}
+
+.title::after {
+	position: absolute;
+	bottom: -12px;
+	left: 0;
+	content: "";
+	width: 150px;
+	height: 1px;
+	background-color: var(--line-color);
+}
+
+.materialsList {
+	max-width: 207px;
+}
+
+.materialsList:not(:last-child) {
+	margin-bottom: 32px;
+}
+
+.materialsItem:not(:last-child) {
+	margin-bottom: 5px;
+}
+
+.materialsItem {
+	line-height: 1.6;
+}
+
+.materialsLink {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.materialsLink:hover,
+.materialsLink:focus {
+	color: var(--accent-color);
+}
+
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+	.materialsSection {
+		background-image: url("../../images/materials/cactus-mobile2x.jpg");
+		background-size: 866px 578px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.materialsSection {
+		height: 899px;
+		padding: 249px 32px;
+		background-image: url("../../images/materials/cactus-tablet.png");
+		background-position: -832px -161px;
+	}
+
+	.titleContainer {
+		margin-bottom: 44px;
+		max-width: 100%;
+	}
+
+	.title {
+		font-size: 22px;
+	}
+
+	.title::after {
+		bottom: -20px;
+		width: 336px;
+	}
+
+	.materialsList {
+		margin-left: 82px;
+		max-width: 100%;
+	}
+
+	.materialsItem {
+		font-size: 14px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.materialsSection {
+		height: 726px;
+		padding: 100px 123px;
+		background-image: url("../../images/materials/cactus-desctop.png");
+		background-position: 0px 0px;
+	}
+
+	.title::after {
+		bottom: -20px;
+		width: 321.5px;
+	}
+
+	.materialsList {
+		margin-left: 60px;
+	}
+}
+
+@media (min-device-pixel-ratio: 2) and (min-width: 768px),
+(min-resolution: 192dpi) and (min-width: 768px),
+(min-resolution: 2dppx) and (min-width: 768px) {
+	.materialsSection {
+		background-image: url("../../images/materials/cactus-tablet2x.png");
+		background-size: 2022px 1350px;
+	}
+}
+
+@media (min-device-pixel-ratio: 2) and (min-width: 1280px),
+(min-resolution: 192dpi) and (min-width: 1280px),
+(min-resolution: 2dppx) and (min-width: 1280px) and (min-width: 1280px) {
+	.materialsSection {
+		background-image: url("../../images/materials/cactus-desctop2x.png");
+		background-size: 1280px 1350px;
+	}
+}
