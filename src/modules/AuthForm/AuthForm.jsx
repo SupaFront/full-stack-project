@@ -69,7 +69,7 @@ function AuthForm() {
 						errorClassName={ styles.error }
 					/>
 
-					{ error && (
+					{ error && error !== "Not authorized" && (
 						<p className={ styles.sorryText }>{ error }</p>
 					) }
 
