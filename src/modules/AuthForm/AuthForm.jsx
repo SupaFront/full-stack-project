@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form } from 'formik';
 
 import { authValidationSchema } from '../../utils/authValidationSchema';
 import { registerUser, logInUser } from '../../redux/auth/auth-operations';
-import { getError, getUserId } from "../../redux/auth/auth-selectors";
+import { getError } from "../../redux/auth/auth-selectors";
 
 import FormikInput from '../../shared/components/FormikInput';
 
@@ -18,7 +18,6 @@ const initialValues = {
 function AuthForm() {
 	const dispatch = useDispatch();
 	const error = useSelector(getError);
-	const userId = useSelector(getUserId);
 	const [ isRegistered, setIsRegistered ] = useState(false);
 
 	const onHandleClick = (string, props) => {
@@ -38,7 +37,7 @@ function AuthForm() {
 
 			case 'signUp':
 				dispatch(registerUser(props.values));
-				userId && setIsRegistered(true);
+				!error && setIsRegistered(true);
 				break;
 
 			default:
@@ -71,7 +70,7 @@ function AuthForm() {
 					/>
 
 					{ error && (
-						<p className={ styles.sorryText }>{ error.message }</p>
+						<p className={ styles.sorryText }>{ error }</p>
 					) }
 
 					{ isRegistered && (
