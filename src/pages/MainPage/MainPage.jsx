@@ -31,7 +31,9 @@ const MainPage = () => {
           className={s.blackLink}
           // to="/test/tech"
           to="/test"
-          // onClick={()=>{dispatch(writePath(questionType[0]));}}
+          onClick={() => {
+            localStorage.setItem("path", "tech");
+          }}
         >
           QA technical training
           <GetSvg
@@ -45,6 +47,9 @@ const MainPage = () => {
           className={s.orangeLink}
           // to="/test/theory"
           to="/test"
+          onClick={() => {
+            localStorage.setItem("path", "theory");
+          }}
         >
           Testing theory
           <GetSvg

@@ -21,3 +21,5 @@ export const getResults = createAsyncThunk('auth/logInUser', async (data, { reje
     return rejectWithValue(message);
   }
 });
+
+// export const postPath=
