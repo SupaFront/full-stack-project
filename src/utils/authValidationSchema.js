@@ -4,7 +4,7 @@ const errorMessage = {
 	email: "* Invalid email address.",
 	emailLength: "* Email must contain from 10 to 63 characters",
 	password:
-		"* Password must contain at least 8 characters and contain letters and numbers.",
+		"* Password must contain from 6 to 16 latin characters and contain letters and numbers.",
 	required: "* The field is required.",
 };
 
@@ -21,7 +21,8 @@ export const authValidationSchema = Yup.object().shape({
 		.required(errorMessage.required),
 	password: Yup.string()
 		.trim()
-		.min(8, errorMessage.password)
+		.min(6, errorMessage.password)
+		.max(16, errorMessage.password)
 		.matches(passwordRegexp, errorMessage.password)
 		.required(errorMessage.required),
 });
