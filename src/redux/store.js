@@ -19,10 +19,16 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
+const qaTestsPersistConfig = {
+  key: 'qaTests',
+  storage,
+  whitelist: ['questionType'],
+};
+
 const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    qaTests: qaTestsReducer, 
+    qaTests: persistReducer(qaTestsPersistConfig, qaTestsReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
