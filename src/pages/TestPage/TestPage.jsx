@@ -41,20 +41,20 @@ const TestPage = () => {
   const [testPageName, setTestPageName] = useState('[Testing theory_]');
   const [testQuestions, setTestQuestions] = useState(allTestArray);
   const [currentQuest, setCurrentQuest] = useState(0);
-  // const questionType = useSelector(getQuestionType);
+  const questionType = useSelector(getQuestionType);
 
   useEffect(() => {
     path = localStorage.getItem('path');
     setTestPageName(testType[path]);
-    // const receiveQuests = async () => {
-    //   try {
-    //     const data = await API.getQuestions(questionType);
-    //     setTestQuestions(data);
-    //   } catch (err) {
-    //     throw err;
-    //   }
-    // };
-    // receiveQuests();
+    const receiveQuests = async () => {
+      try {
+        const data = await API.getQuestions(questionType);
+        setTestQuestions(data);
+      } catch (err) {
+        throw err;
+      }
+    };
+    receiveQuests();
   }, [dispatch]);
 
   const questionText = testQuestions[currentQuest]?.question;
