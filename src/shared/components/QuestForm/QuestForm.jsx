@@ -8,6 +8,7 @@ const QuestForm = ({
   questionText,
   answersList,
   answer,
+  onClick,
 }) => {
   return (
     <div>
@@ -20,6 +21,7 @@ const QuestForm = ({
           questionText={questionText}
           answersList={answersList}
           answer={answer}
+          onClick={onClick}
         />
       </form>
     </div>

@@ -15,7 +15,8 @@ import allTestArray from "../../shared/components/RadioButtonsList/answers"; //o
 let isFinished = false;
 let text;
 let path;
-const answersList=[];
+
+const answersList = [];
 
 const testType = {
   tech: "[QA technical training_]",
@@ -39,7 +40,6 @@ const TestPage = () => {
   const [testPageName, setTestPageName] = useState("[Testing theory_]");
   const [testQuestions, setTestQuestions] = useState(allTestArray);
   const [currentQuest, setCurrentQuest] = useState(0);
-  
 
   useEffect(() => {
     path = localStorage.getItem("path");
@@ -69,7 +69,13 @@ const TestPage = () => {
     btnArrowLeftDisabledFlag = false;
   }
 
-  if (currentQuest + 1 === questCount) {
+  const isAnswered = answersList.findIndex((item) => {
+    return item?._id === testQuestions[currentQuest]._id;
+  });
+
+  console.log("isAnswered", isAnswered);
+
+  if (currentQuest + 1 === questCount && !isAnswered) {
     btnImgRightStyle = "btnImgRightDisabled";
     btnArrowRightStyle = "btnArrowRightDisabled";
     btnImgRightDisabledFlag = true;
@@ -80,6 +86,32 @@ const TestPage = () => {
     btnImgRightDisabledFlag = false;
     btnArrowRightDisabledFlag = false;
   }
+
+  const handleClick = (answer) => {
+    // alert(answer);
+    // console.log(
+    //   answersList.findIndex((item) => {
+    //     return item?._id === testQuestions[currentQuest]._id;
+    //   })
+    // );
+
+    const checkAnswer = answersList.findIndex((item) => {
+      return item?._id === testQuestions[currentQuest]._id;
+    });
+
+    if (checkAnswer === -1) {
+      answersList.push({ _id: testQuestions[currentQuest]._id, answer });
+    } else {
+      answersList[checkAnswer] = {
+        _id: testQuestions[currentQuest]._id,
+        answer,
+      };
+    }
+
+    console.log(answersList);
+
+    // console.log({ _id: testQuestions[currentQuest]._id, answer });
+  };
 
   return (
     <div className={s.container}>
@@ -94,7 +126,8 @@ const TestPage = () => {
         maxCount={questCount}
         questionText={questionText}
         answersList={answersVariants}
-        answer = {answersList[currentQuest]}
+        answer={answersList[currentQuest]}
+        onClick={handleClick}
       />
       <div className={s.wrapperBtn}>
         <Button
