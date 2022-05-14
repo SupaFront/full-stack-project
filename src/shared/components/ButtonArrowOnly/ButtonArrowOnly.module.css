@@ -22,6 +22,17 @@
     fill: var(--main-text-color);
     color: var(--main-text-color);
   }
+
+  .btnArrowLeftDisabled {
+    composes: btnArrowLeft;
+    background: var(--placeholder-color);
+  }
+  
+  .btnArrowRightDisabled {
+    composes: btnArrowRight;
+    background: var(--placeholder-color);
+  }
+  
 }
 @media screen and (min-width: 768px) {
   .btnArrowLeft,

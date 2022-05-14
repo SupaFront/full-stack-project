@@ -8,14 +8,15 @@ const Button = ({
   height,
   styles,
   disabled = false,
+  onClick
 }) => {
   return img ? (
-    <button className={s[styles]} type="button" disabled={disabled}>
-      <GetSvg name={imgName} width={width} height={height} className={"svg"} />
+    <button className={s[styles]} type="button" disabled={disabled} onClick={onClick}>
+      <GetSvg name={imgName} width={width} height={height} className={"svg"} onClick={onClick}/>
       {text}
     </button>
   ) : (
-    <input className={s.btn} type="button" value={text} disabled={disabled}/>
+    <input className={s.btn} type="button" value={text} disabled={disabled} onClick={onClick}/>
   );
 };
 

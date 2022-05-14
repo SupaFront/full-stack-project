@@ -1,6 +1,7 @@
 @import "../../../styles/variables.css";
 
 .btn {
+  display: inline-block;
   border: 2px solid transparent;
   color: var(--secondary-background-color);
   background-color: var(--accent-color);
@@ -35,12 +36,22 @@
   color: var(--main-text-color);
 }
 
+.btnImgLeftDisabled {
+  composes: btnImgLeft;
+  background: var(--placeholder-color);
+}
+
+.btnImgRightDisabled {
+  composes: btnImgRight;
+  background: var(--placeholder-color);
+}
+
+
 @media screen and (min-width: 320px) {
   .btn {
     width: 130px;
     padding: 17px 14px;
     font-size: 10px;
-
   }
 
   .btnImgLeft,
@@ -53,11 +64,11 @@
     width: 180px;
     padding: 17px 30px;
     font-size: 14px;
-
   }
 
   .btnImgLeft,
-  .btnImgRight {
+  .btnImgRight,
+  .finishBtn {
     display: flex;
 
     width: 210px;

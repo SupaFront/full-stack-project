@@ -6,9 +6,15 @@ const ButtonArrowOnly = ({
   height,
   styles,
   disabled = false,
+  onClick,
 }) => {
   return (
-    <button className={s[styles]} type="button" disabled={disabled}>
+    <button
+      className={s[styles]}
+      type="button"
+      disabled={disabled}
+      onClick={onClick}
+    >
       <GetSvg name={imgName} width={width} height={height} className={"svg"} />
     </button>
   );

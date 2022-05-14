@@ -22,7 +22,7 @@ const authPersistConfig = {
 const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    qaTests: qaTestsReducer,
+    qaTests: qaTestsReducer, 
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
