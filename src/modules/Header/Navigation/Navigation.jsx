@@ -22,7 +22,7 @@ function Navigation({ className }) {
 						</li>
 						<li className={ styles.item }>
 							<NavLink
-								to="/useful-info"
+								to="/materials"
 								className={ ({ isActive }) => (isActive ? styles.isActive : styles.navLink) }
 							>
 								<span>Materials</span>
