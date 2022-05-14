@@ -1,8 +1,8 @@
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from 'uuid';
 
-import s from "./RadioButtonsList.module.css";
+import s from './RadioButtonsList.module.css';
 
-import allTestArray from "./answers";
+import allTestArray from './answers';
 
 const RadioButtonsList = ({
   questionText = allTestArray[questCount].question,
@@ -22,7 +22,7 @@ const RadioButtonsList = ({
           name="ritem"
           value={item}
           // checked={item === answer}
-          onClick={(event) => onClick(event.target.value)}
+          onClick={event => onClick(event.target.value)}
         />
         <label htmlFor={index}>{item}</label>
       </div>
