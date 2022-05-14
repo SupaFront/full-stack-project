@@ -32,18 +32,14 @@ let btnArrowRightStyle;
 let btnImgRightStyle;
 let btnImgRightDisabledFlag;
 let btnArrowRightDisabledFlag;
+let resultTest = [];
 
 const TestPage = () => {
-  // testPageName = "[Testing theory_]"
-  // const dispatch = useDispatch();
-
   const [testPageName, setTestPageName] = useState("[Testing theory_]");
   const [testQuestions, setTestQuestions] = useState([]);
   const [currentQuest, setCurrentQuest] = useState(0);
 
   const questionType = useSelector(getQuestionType);
-
-  console.log("questionType", questionType);
 
   useEffect(() => {
     path = localStorage.getItem("path");
@@ -53,24 +49,17 @@ const TestPage = () => {
     const receiveQuests = async () => {
       try {
         const data = await API.getQuestions(questionType);
-        setTestQuestions(data);
-        return data; //it`s my
+
+        const modifiedData = data.map((item) => ({ ...item, answer: "" }));
+
+        setTestQuestions(modifiedData);
       } catch (err) {
         throw err;
       }
     };
 
-    receiveQuests(); //it`s me
-
-    // setTestQuestions(receiveQuests());
-
-    console.log("testQuestions", testQuestions);
-    // console.log("data", data);
+    receiveQuests();
   }, []);
-
-  const questionText = testQuestions[currentQuest]?.question;
-
-  const answersVariants = testQuestions[currentQuest]?.answers;
 
   const questCount = testQuestions?.length;
 
@@ -96,7 +85,6 @@ const TestPage = () => {
 
   console.log("isAnswered", isAnswered);
 
-  // if (currentQuest + 1 === questCount && !isAnswered) {
   if (currentQuest + 1 === questCount) {
     btnImgRightStyle = "btnImgRightDisabled";
     btnArrowRightStyle = "btnArrowRightDisabled";
@@ -109,30 +97,18 @@ const TestPage = () => {
     btnArrowRightDisabledFlag = false;
   }
 
-  const handleClick = (answer) => {
-    // alert(answer);
-    // console.log(
-    //   answersList.findIndex((item) => {
-    //     return item?._id === testQuestions[currentQuest]._id;
-    //   })
-    // );
+  const handleChange = (answer) => {
+    testQuestions[currentQuest].answer = answer;
+    setTestQuestions([...testQuestions]);
 
-    const checkAnswer = answersList.findIndex((item) => {
-      return item?._id === testQuestions[currentQuest]._id;
-    });
-
-    if (checkAnswer === -1) {
-      answersList.push({ _id: testQuestions[currentQuest]._id, answer });
-    } else {
-      answersList[checkAnswer] = {
-        _id: testQuestions[currentQuest]._id,
-        answer,
-      };
-    }
-
-    console.log(answersList);
-
-    // console.log({ _id: testQuestions[currentQuest]._id, answer });
+    // console.log;
+    // resultTest = testQuestions.map((_id, answer) => ({ id: _id, answer }));
+    // resultTest = testQuestions.map((item) => {
+    //  return item;
+    // });
+    // JSON.stringify(resultTest)
+    resultTest = testQuestions.map(({ _id, answer }) => ({ id: _id, answer }));
+    localStorage.setItem("resultTest", JSON.stringify(resultTest));
   };
 
   return (
@@ -144,12 +120,9 @@ const TestPage = () => {
         </NavLink>
       </div>
       <QuestForm
-        questCount={currentQuest + 1}
-        maxCount={questCount}
-        questionText={questionText}
-        answersList={answersVariants}
-        answer={answersList[currentQuest]}
-        onClick={handleClick}
+        currentQuest={currentQuest}
+        testQuestions={testQuestions}
+        onChange={handleChange}
       />
       <div className={s.wrapperBtn}>
         <Button

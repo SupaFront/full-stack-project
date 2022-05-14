@@ -1,19 +1,19 @@
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
-import s from './RadioButtonsList.module.css';
-
-import allTestArray from './answers';
+import s from "./RadioButtonsList.module.css";
 
 const RadioButtonsList = ({
-  questCount = 0,
-  questionText,
-  answersList,
-  answer,
-  onClick,
+  currentQuest = 0,
+  testQuestions,
+  onChange,
 }) => {
-  const elements = answersList?.map((item, index) => {
+  const answerList = testQuestions[currentQuest]?.answers;
+  const answer = testQuestions[currentQuest]?.answer;
+  const questionText = testQuestions[currentQuest]?.question;
+
+  const elements = answerList?.map((item, index) => {
+
     return (
-      // <div key={uuidv4()} className={s.radioButtonItem}>
       <div key={uuidv4()} className={s.radioButtonItem}>
         <input
           className={s.radioItem}
@@ -21,8 +21,8 @@ const RadioButtonsList = ({
           id={index}
           name="ritem"
           value={item}
-          // checked={item === answer}
-          onClick={event => onClick(event.target.value)}
+          checked={item === answer}
+          onChange={() => onChange(item)}
         />
         <label htmlFor={index}>{item}</label>
       </div>
