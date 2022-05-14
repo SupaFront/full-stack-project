@@ -7,7 +7,8 @@ const path = {
 
 const getQuestions = async questionType => {
   try {
-    const { data } = axios.get(path.tests + questionType);
+    // const { data } = axios.get(path.tests + questionType);
+    const {data} = await axios.get(path.tests + questionType);
     return data;
   } catch (error) {
     const err = { ...error.response.data, status: error.response.status };
@@ -17,7 +18,7 @@ const getQuestions = async questionType => {
 
 const getResults = async ({ questionType, answers }) => {
   try {
-    const { data } = axios.post(path.results + questionType, answers);
+    const { data } = await axios.post(path.results + questionType, answers);
     return data;
   } catch (error) {
     const err = { ...error.response.data, status: error.response.status };

@@ -6,12 +6,12 @@ import allTestArray from './answers';
 
 const RadioButtonsList = ({
   questCount = 0,
-  questionText = allTestArray[questCount].question,
-  answersList = allTestArray[questCount].answers,
+  questionText,
+  answersList,
   answer,
   onClick,
 }) => {
-  const elements = answersList.map((item, index) => {
+  const elements = answersList?.map((item, index) => {
     return (
       // <div key={uuidv4()} className={s.radioButtonItem}>
       <div key={uuidv4()} className={s.radioButtonItem}>
