@@ -5,9 +5,9 @@ import s from './RadioButtonsList.module.css';
 import allTestArray from './answers';
 
 const RadioButtonsList = ({
+  questCount = 0,
   questionText = allTestArray[questCount].question,
   answersList = allTestArray[questCount].answers,
-  questCount = 0,
   answer,
   onClick,
 }) => {

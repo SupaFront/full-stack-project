@@ -39,7 +39,7 @@ const TestPage = () => {
   const dispatch = useDispatch();
 
   const [testPageName, setTestPageName] = useState('[Testing theory_]');
-  const [testQuestions, setTestQuestions] = useState(allTestArray);
+  const [testQuestions, setTestQuestions] = useState([]);
   const [currentQuest, setCurrentQuest] = useState(0);
   const questionType = useSelector(getQuestionType);
 
@@ -55,11 +55,12 @@ const TestPage = () => {
       }
     };
     receiveQuests();
+    console.log(testQuestions);
   }, [dispatch]);
 
-  const questionText = testQuestions[currentQuest]?.question;
+  const questionText = testQuestions?.length && testQuestions[currentQuest].question;
 
-  const answersVariants = testQuestions[currentQuest]?.answers;
+  const answersVariants = testQuestions?.length && testQuestions[currentQuest].answers;
 
   const questCount = testQuestions.length;
 
