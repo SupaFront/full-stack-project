@@ -41,6 +41,12 @@
   background: var(--placeholder-color);
 }
 
+.btnImgRightDisabled {
+  composes: btnImgRight;
+  background: var(--placeholder-color);
+}
+
+
 @media screen and (min-width: 320px) {
   .btn {
     width: 130px;

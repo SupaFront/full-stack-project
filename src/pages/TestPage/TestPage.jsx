@@ -15,11 +15,22 @@ import allTestArray from "../../shared/components/RadioButtonsList/answers"; //o
 let isFinished = false;
 let text;
 let path;
+const answersList=[];
 
 const testType = {
   tech: "[QA technical training_]",
   theory: "[Testing theory_]",
 };
+
+let btnImgLeftStyle;
+let btnArrowLeftStyle;
+let btnImgLeftDisabledFlag;
+let btnArrowLeftDisabledFlag;
+
+let btnArrowRightStyle;
+let btnImgRightStyle;
+let btnImgRightDisabledFlag;
+let btnArrowRightDisabledFlag;
 
 const TestPage = () => {
   // testPageName = "[Testing theory_]"
@@ -27,7 +38,8 @@ const TestPage = () => {
 
   const [testPageName, setTestPageName] = useState("[Testing theory_]");
   const [testQuestions, setTestQuestions] = useState(allTestArray);
-  const [currentQuest, setcurrentQuest] = useState(0);
+  const [currentQuest, setCurrentQuest] = useState(0);
+  
 
   useEffect(() => {
     path = localStorage.getItem("path");
@@ -37,7 +49,7 @@ const TestPage = () => {
 
   const questionText = testQuestions[currentQuest].question;
 
-  const answersList = testQuestions[currentQuest].answers;
+  const answersVariants = testQuestions[currentQuest].answers;
 
   const questCount = testQuestions.length;
 
@@ -45,15 +57,29 @@ const TestPage = () => {
 
   path = isFinished ? "/results" : "/";
 
-  const btnImgLeftStyle = currentQuest ? "btnImgLeft" : "btnImgLeftDisabled";
-  const btnImgRightStyle =
-    currentQuest === questCount ? "btnImgRightDisabled" : "btnImgRight";
+  if (!currentQuest) {
+    btnImgLeftStyle = "btnImgLeftDisabled";
+    btnArrowLeftStyle = "btnArrowLeftDisabled";
+    btnImgLeftDisabledFlag = true;
+    btnArrowLeftDisabledFlag = true;
+  } else {
+    btnImgLeftStyle = "btnImgLeft";
+    btnArrowLeftStyle = "btnArrowLeft";
+    btnImgLeftDisabledFlag = false;
+    btnArrowLeftDisabledFlag = false;
+  }
 
-  const btnArrowLeftStyle = currentQuest
-    ? "btnArrowLeft"
-    : "btnArrowLeftDisabled";
-  const btnArrowRightStyle =
-    currentQuest === questCount ? "btnArrowRightDisabled" : "btnArrowRight";
+  if (currentQuest + 1 === questCount) {
+    btnImgRightStyle = "btnImgRightDisabled";
+    btnArrowRightStyle = "btnArrowRightDisabled";
+    btnImgRightDisabledFlag = true;
+    btnArrowRightDisabledFlag = true;
+  } else {
+    btnImgRightStyle = "btnImgRight";
+    btnArrowRightStyle = "btnArrowRight";
+    btnImgRightDisabledFlag = false;
+    btnArrowRightDisabledFlag = false;
+  }
 
   return (
     <div className={s.container}>
@@ -67,7 +93,8 @@ const TestPage = () => {
         questCount={currentQuest + 1}
         maxCount={questCount}
         questionText={questionText}
-        answersList={answersList}
+        answersList={answersVariants}
+        answer = {answersList[currentQuest]}
       />
       <div className={s.wrapperBtn}>
         <Button
@@ -77,6 +104,8 @@ const TestPage = () => {
           width={24}
           height={16}
           styles={btnImgLeftStyle}
+          disabled={btnImgLeftDisabledFlag}
+          onClick={() => setCurrentQuest(currentQuest - 1)}
         />
         <Button
           text="Next question"
@@ -84,19 +113,25 @@ const TestPage = () => {
           imgName={"arrow-right"}
           width={24}
           height={16}
-          styles={"btnImgRight"}
+          styles={btnImgRightStyle}
+          disabled={btnImgRightDisabledFlag}
+          onClick={() => setCurrentQuest(currentQuest + 1)}
         />
         <ButtonArrowOnly
           imgName={"arrow-left"}
           width={24}
           height={16}
           styles={btnArrowLeftStyle}
+          disabled={btnArrowLeftDisabledFlag}
+          onClick={() => setCurrentQuest(currentQuest - 1)}
         />
         <ButtonArrowOnly
           imgName={"arrow-right"}
           width={24}
           height={16}
           styles={btnArrowRightStyle}
+          disabled={btnArrowRightDisabledFlag}
+          onClick={() => setCurrentQuest(currentQuest + 1)}
         />
       </div>
     </div>

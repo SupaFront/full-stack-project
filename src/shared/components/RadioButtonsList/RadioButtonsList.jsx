@@ -4,11 +4,11 @@ import s from "./RadioButtonsList.module.css";
 
 import allTestArray from "./answers";
 
-
-const Radiobuttons = ({
+const RadioButtonsList = ({
   questionText = allTestArray[questCount].question,
   answersList = allTestArray[questCount].answers,
-  questCount = 0
+  questCount = 0,
+  answer,
 }) => {
   const elements = answersList.map((item, index) => {
     return (
@@ -20,6 +20,7 @@ const Radiobuttons = ({
           id={index}
           name="ritem"
           value={item}
+          checked={item === answer}
         />
         <label htmlFor={index}>{item}</label>
       </div>
@@ -34,4 +35,4 @@ const Radiobuttons = ({
   );
 };
 
-export default Radiobuttons;
+export default RadioButtonsList;
