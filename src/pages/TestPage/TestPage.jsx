@@ -99,7 +99,12 @@ const TestPage = () => {
   const handleChange = answer => {
     testQuestions[currentQuest].answer = answer;
     setTestQuestions([...testQuestions]);
-    resultTest = testQuestions.map(({ _id, answer }) => ({ id: _id, answer }));
+
+    const resultTest = testQuestions.map(({ _id, answer }) => ({
+      id: _id,
+      answer,
+    }));
+
     localStorage.setItem('resultTest', JSON.stringify(resultTest));
   };
 
