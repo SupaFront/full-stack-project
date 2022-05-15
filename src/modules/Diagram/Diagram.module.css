@@ -1,0 +1,10 @@
+.pie {
+    height: 156px;
+    width: 156px;
+
+    
+    @media screen and (min-width: 768px) {
+height: 285px;
+width: 285px;
+    }
+}
