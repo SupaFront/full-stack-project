@@ -3,58 +3,59 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap");
 
 html::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
+	width: 0px;
+	background: transparent;
 }
 
 html,
 body {
-  margin: 0;
-  height: 100%;
-  overflow: hidden;
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
 }
 
 #root {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 500;
+	font-size: 10px;
+	line-height: 1.2;
+	letter-spacing: 0.02em;
 
-  color: var(--main-text-color);
-  background-color: var(--background-color) !important;
+	color: var(--main-text-color);
+	background-color: var(--background-color) !important;
 }
 
 /* global styles for Hamburger*/
 .hamburger-react {
-  width: 20px !important;
-  height: 20px !important;
+	width: 20px !important;
+	height: 20px !important;
 }
 
 .hamburger-react div:nth-child(1) {
-  top: 5px !important;
-  left: 5px !important;
-  width: 10px !important;
+	top: 5px !important;
+	left: 5px !important;
+	width: 10px !important;
 }
 
 .hamburger-react div:nth-child(2) {
-  top: 9px !important;
-  left: 5px !important;
-  width: 10px !important;
+	top: 9px !important;
+	left: 5px !important;
+	width: 10px !important;
 }
 
 .hamburger-react div:nth-child(3) {
-  top: 13px !important;
-  left: 5px !important;
-  width: 10px !important;
+	top: 13px !important;
+	left: 5px !important;
+	width: 10px !important;
 }
+
 /* end global styles for Hamburger*/

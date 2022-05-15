@@ -1,6 +1,6 @@
 import RadioButtonsList from "../RadioButtonsList/RadioButtonsList";
 
-import s from "./QuestForm.module.css";
+import s from "./questForm.module.css";
 
 const QuestForm = ({
   currentQuest,
@@ -23,6 +23,7 @@ const QuestForm = ({
       </form>
     </div>
   );
+
 };
 
 export default QuestForm;

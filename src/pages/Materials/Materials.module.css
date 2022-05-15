@@ -57,7 +57,7 @@
 (min-resolution: 192dpi),
 (min-resolution: 2dppx) {
 	.materialsSection {
-		background-image: url("../../images/materials/cactus-mobile2x.jpg");
+		background-image: url("../../images/materials/cactus-mobile2x.png");
 		background-size: 866px 578px;
 	}
 }
