@@ -3,29 +3,27 @@ import RadioButtonsList from "../RadioButtonsList/RadioButtonsList";
 import s from "./questForm.module.css";
 
 const QuestForm = ({
-	questCount,
-	maxCount,
-	questionText,
-	answersList,
-	answer,
-	onClick,
+  currentQuest,
+  maxCount,
+  testQuestions,
+  onChange,
 }) => {
-	return (
-		<div>
-			<form className={ s.form } action="#">
-				<h2 className={ s.title }>
-					Question <span>{ questCount }</span> / { maxCount }
-				</h2>
-				<RadioButtonsList
-					questCount={ questCount }
-					questionText={ questionText }
-					answersList={ answersList }
-					answer={ answer }
-					onClick={ onClick }
-				/>
-			</form>
-		</div>
-	);
+  maxCount = testQuestions?.length;
+  return (
+    <div>
+      <form className={s.form} action="#">
+        <h2 className={s.title}>
+          Question <span>{currentQuest + 1}</span> / {maxCount}
+        </h2>
+        <RadioButtonsList
+          currentQuest={currentQuest}
+          testQuestions={testQuestions}
+          onChange={onChange}
+        />
+      </form>
+    </div>
+  );
+
 };
 
 export default QuestForm;
