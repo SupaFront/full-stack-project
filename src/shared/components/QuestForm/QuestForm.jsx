@@ -1,6 +1,6 @@
 import RadioButtonsList from "../RadioButtonsList/RadioButtonsList";
 
-import s from "./questForm.module.css";
+import s from "./QuestForm.module.css";
 
 const QuestForm = ({
   currentQuest,
