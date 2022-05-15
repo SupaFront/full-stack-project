@@ -32,6 +32,10 @@
     composes: btnArrowRight;
     background: var(--placeholder-color);
   }
+
+  .btnArrowRightInvisible {
+    display: none;
+  };
   
 }
 @media screen and (min-width: 768px) {
