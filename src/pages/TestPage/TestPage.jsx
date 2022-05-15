@@ -99,8 +99,12 @@ const TestPage = () => {
   const handleChange = (answer) => {
     testQuestions[currentQuest].answer = answer;
     setTestQuestions([...testQuestions]);
+<<<<<<< Updated upstream
 
     const resultTest = testQuestions.map(({ _id, answer }) => ({ id: _id, answer }));
+=======
+    resultTest = testQuestions.map(({ _id, answer }) => ({ id: _id, answer }));
+>>>>>>> Stashed changes
     localStorage.setItem("resultTest", JSON.stringify(resultTest));
   };
 
