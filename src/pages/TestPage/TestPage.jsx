@@ -32,7 +32,6 @@ let btnArrowRightStyle;
 let btnImgRightStyle;
 let btnImgRightDisabledFlag;
 let btnArrowRightDisabledFlag;
-let resultTest = [];
 
 const TestPage = () => {
   const [testPageName, setTestPageName] = useState("[Testing theory_]");
@@ -101,13 +100,7 @@ const TestPage = () => {
     testQuestions[currentQuest].answer = answer;
     setTestQuestions([...testQuestions]);
 
-    // console.log;
-    // resultTest = testQuestions.map((_id, answer) => ({ id: _id, answer }));
-    // resultTest = testQuestions.map((item) => {
-    //  return item;
-    // });
-    // JSON.stringify(resultTest)
-    resultTest = testQuestions.map(({ _id, answer }) => ({ id: _id, answer }));
+    const resultTest = testQuestions.map(({ _id, answer }) => ({ id: _id, answer }));
     localStorage.setItem("resultTest", JSON.stringify(resultTest));
   };
 
