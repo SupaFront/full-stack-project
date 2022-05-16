@@ -61,7 +61,7 @@ function ResultsPage() {
           </div>
         </div>
         <div className={styles.lowestsect}>
-          <img src={catImage} className={styles.catpic} alt={'a cat'} />
+          {<img src={catImage} className={styles.catpic} alt={'a cat'} />}
           <p className={styles.mainmessage}>{results?.mainMessage}</p>
           <p className={styles.secondarymessage}>{results?.secondaryMessage}</p>
           <Link
