@@ -11,10 +11,8 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('qqeq');
     dispatch(getCurrentUser());
-    return console.log('suka');
-  }, []);
+  }, [dispatch]);
   return (
     <div className="App">
       <Header />
