@@ -1,5 +1,6 @@
 import alena from '../../images/team/alena.jpg';
 import yehor from '../../images/team/yehor.jpg';
+import vlad from '../../images/team/vlad.jpg';
 
 import styles from './AboutUsPage.module.css';
 
@@ -23,7 +24,7 @@ function AboutUsPage() {
         </li>
         <li className={styles.teamItem}>
           <img
-            src="https://via.placeholder.com/336"
+            src={vlad}
             alt="ScrumMaster"
             className={styles.image}
             width={280}

@@ -116,6 +116,8 @@ const TestPage = () => {
     btnImgRightStyle = "btnImgRightInvisible";
     btnArrowRightStyle = "btnArrowRightInvisible";
     btnFinishTestStyle = s.btnFinishDisabled;
+  } else {
+    btnFinishTestStyle = s.btnFinishInvisible;
   }
 
   if (currentQuest + 1 === questCount && testQuestions[currentQuest]?.answer) {

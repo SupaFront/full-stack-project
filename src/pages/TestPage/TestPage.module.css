@@ -17,7 +17,7 @@
   width: 120px;
   font-size: 22px;
   font-weight: 500;
-  letter-spacing: 0.02;
+  letter-spacing: 2%;
   line-height: 1.23;
 }
 
@@ -35,9 +35,9 @@
   background-color: var(--accent-color);
   border: transparent;
   cursor: pointer;
-  width: 210px;
+  width: 130px;
   padding: 12px 30px;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .btnFinishDisabled {
@@ -116,7 +116,7 @@
     width: 120px;
     font-size: 22px;
     font-weight: 500;
-    letter-spacing: 0.02;
+    letter-spacing: 2%;
     line-height: 1.23;
   }
 
@@ -131,6 +131,12 @@
     padding: 17px 30px;
     font-size: 14px;
   }
+
+  .btnFinish {
+    width: 210px;
+    font-size: 12px;
+  }
+  
 }
 @media screen and (min-width: 1280px) {
   .container {
@@ -150,7 +156,7 @@
     width: 120px;
     font-size: 22px;
     font-weight: 500;
-    letter-spacing: 0.02;
+    letter-spacing: 2%;
     line-height: 1.23;
   }
 
