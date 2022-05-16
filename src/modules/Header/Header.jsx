@@ -21,6 +21,10 @@ function Header() {
 		dispatch(logOutUser());
 	};
 
+	const onHandleCloseMenu = () => {
+		setOpen(false);
+	};
+
 	const renderLogoutButton = className => (
 		<button type="button" className={ className } onClick={ onHandleClick }>
 			<GetSvg name="logout" width={ 16 } height={ 16 } className="logoutSvg" />
@@ -50,7 +54,7 @@ function Header() {
 			</div>
 			{ isOpen && (
 				<Modal onClose={ () => setOpen(false) }>
-					<Navigation className={ styles.mobile } />
+					<Navigation className={ styles.mobile } onClick={ onHandleCloseMenu } />
 					{ isLoggedIn && renderLogoutButton(styles.logoutModalButton) }
 				</Modal>
 			) }

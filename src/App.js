@@ -18,7 +18,7 @@ function App() {
 		<div className="App">
 			<Header />
 			<MyRoutes />
-			<ResultsPage />
+			{/* <ResultsPage /> */ }
 			<Footer />
 		</div>
 	);
