@@ -10,19 +10,20 @@ import { getCurrentUser } from './redux/auth/auth-operations';
 function App() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log('qqeq');
-    dispatch(getCurrentUser());
-    return console.log('suka');
-  }, []);
-  return (
-    <div className="App">
-      <Header />
-      <MyRoutes />
-      {/* <ResultsPage /> */}
-      <Footer />
-    </div>
-  );
+
+	useEffect(() => {
+		dispatch(getCurrentUser());
+	}, [ dispatch ]);
+	return (
+		<div className="App">
+			<Header />
+			<MyRoutes />
+			{/* <ResultsPage /> */ }
+			<Footer />
+		</div>
+	);
+
+
 }
 
 export default App;

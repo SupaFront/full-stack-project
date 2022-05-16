@@ -4,7 +4,7 @@ import useAuth from '../../../shared/hooks/useAuth';
 
 import styles from './Navigation.module.css';
 
-function Navigation({ className }) {
+function Navigation({ className, onClick }) {
 	const isLogggedIn = useAuth();
 
 	return (
@@ -16,6 +16,7 @@ function Navigation({ className }) {
 							<NavLink
 								to="/"
 								className={ ({ isActive }) => (isActive ? styles.isActive : styles.navLink) }
+								onClick={ onClick }
 							>
 								<span>Home</span>
 							</NavLink>
@@ -24,6 +25,7 @@ function Navigation({ className }) {
 							<NavLink
 								to="/materials"
 								className={ ({ isActive }) => (isActive ? styles.isActive : styles.navLink) }
+								onClick={ onClick }
 							>
 								<span>Materials</span>
 							</NavLink>
@@ -34,6 +36,7 @@ function Navigation({ className }) {
 					<NavLink
 						to="/about-us"
 						className={ ({ isActive }) => (isActive ? styles.isActive : styles.navLink) }
+						onClick={ onClick }
 					>
 						<span>About Us</span>
 					</NavLink>

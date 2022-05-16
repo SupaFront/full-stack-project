@@ -22,7 +22,7 @@ function Footer() {
 			</div>
 			<div className={ styles.teamContainer }>
 				by &nbsp;
-				<NavLink to="/contacts" className={ styles.teamLink }>
+				<NavLink to="/about-us" className={ styles.teamLink }>
 					GoIT Students
 				</NavLink>
 			</div>

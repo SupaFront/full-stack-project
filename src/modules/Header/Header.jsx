@@ -22,39 +22,46 @@ function Header() {
     localStorage.clear();
   };
 
-  const renderLogoutButton = className => (
-    <button type="button" className={className} onClick={onHandleClick}>
-      <GetSvg name="logout" width={16} height={16} className="logoutSvg" />
-    </button>
-  );
+	const onHandleCloseMenu = () => {
+		setOpen(false);
+	};
 
-  return (
-    <header className={styles.headerSection}>
-      <Logo />
-      <Navigation className={styles.full} />
-      <div className={styles.rightContainer}>
-        {!isOpen && isLoggedIn && <UserInfo />}
-        {isLoggedIn && (
-          <div className={styles.logoutContainer}>{renderLogoutButton(styles.logoutButton)}</div>
-        )}
-        <div className={styles.hamburgerContainer}>
-          <Hamburger
-            toggled={isOpen}
-            toggle={setOpen}
-            size={12}
-            color="#000000"
-            hideOutline={true}
-          />
-        </div>
-      </div>
-      {isOpen && (
-        <Modal onClose={() => setOpen(false)}>
-          <Navigation className={styles.mobile} />
-          {isLoggedIn && renderLogoutButton(styles.logoutModalButton)}
-        </Modal>
-      )}
-    </header>
-  );
+	const renderLogoutButton = className => (
+		<button type="button" className={ className } onClick={ onHandleClick }>
+			<GetSvg name="logout" width={ 16 } height={ 16 } className="logoutSvg" />
+		</button>
+	);
+
+	return (
+		<header className={ styles.headerSection }>
+			<Logo />
+			<Navigation className={ styles.full } />
+			<div className={ styles.rightContainer }>
+				{ !isOpen && isLoggedIn && <UserInfo /> }
+				{ isLoggedIn && (
+					<div className={ styles.logoutContainer }>{
+						renderLogoutButton(styles.logoutButton)
+					}</div>
+				) }
+				<div className={ styles.hamburgerContainer }>
+					<Hamburger
+						toggled={ isOpen }
+						toggle={ setOpen }
+						size={ 12 }
+						color="#000000"
+						hideOutline={ true }
+					/>
+				</div>
+			</div>
+			{ isOpen && (
+				<Modal onClose={ () => setOpen(false) }>
+					<Navigation className={ styles.mobile } onClick={ onHandleCloseMenu } />
+					{ isLoggedIn && renderLogoutButton(styles.logoutModalButton) }
+				</Modal>
+			) }
+		</header>
+	);
+
 }
 
 export default Header;

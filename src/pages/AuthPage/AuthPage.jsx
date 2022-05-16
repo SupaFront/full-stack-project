@@ -23,18 +23,7 @@ function AuthPage() {
 				</p>
 			</div>
 			<div className={ styles.container }>
-				<p>You can use your Google Account to authorize:</p>
-				<div style={ { display: "flex", alignItems: "center" } }>
-					<button className={ styles.googleButton } onClick={ onClickGoogleButton }>
-						<GetSvg name="google" width={ 18 } height={ 18 } className="googleIcon" />
-						Google
-					</button>
-					{ isGoogleButtonClicked && (
-						<span style={ { color: "green" } }>Sorry, I'm not working now =\</span>
-					) }
-
-				</div>
-				<p>Or login to our app using e-mail and password:</p>
+				<p>Login to our app using e-mail and password:</p>
 				<AuthForm />
 			</div>
 

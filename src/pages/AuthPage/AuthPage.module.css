@@ -1,96 +1,99 @@
 .authSection {
-  padding: 40px 20px;
+	padding: 40px 20px;
+	height: 693px;
 }
 
 .title {
-  margin-bottom: 8px;
-  font-weight: 800;
-  font-size: 20px;
+	margin-bottom: 8px;
+	font-weight: 800;
+	font-size: 20px;
 }
 
 .subtitle {
-  margin-bottom: 24px;
-  max-width: 280px;
-  font-size: 12px;
-  line-height: 1.67;
-  color: var(--secondary-text-color);
+	margin-bottom: 24px;
+	max-width: 280px;
+	font-size: 12px;
+	line-height: 1.67;
+	color: var(--secondary-text-color);
 }
 
 .container {
-  max-width: 280px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  font-size: 9px;
-  background-color: var(--secondary-background-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.12),
-    0px 2px 1px rgba(0, 0, 0, 0.12);
+	max-width: 280px;
+	margin: 0 auto;
+	padding: 40px 20px;
+	font-size: 9px;
+	background-color: var(--secondary-background-color);
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.12),
+		0px 2px 1px rgba(0, 0, 0, 0.12);
 }
 
 .googleButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 32px auto;
-  width: 159px;
-  height: 51px;
-  font-weight: 700;
-  font-size: 14px;
-  border: none;
-  background-color: var(--secondary-button-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.12),
-    0px 2px 1px rgba(0, 0, 0, 0.12);
-  cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 32px auto;
+	width: 159px;
+	height: 51px;
+	font-weight: 700;
+	font-size: 14px;
+	border: none;
+	background-color: var(--secondary-button-color);
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.12),
+		0px 2px 1px rgba(0, 0, 0, 0.12);
+	cursor: pointer;
 }
 
 .googleButton:hover,
 .googleButton:focus {
-  background-color: var(--secondary-button-hover-color);
+	background-color: var(--secondary-button-hover-color);
 }
 
 @media screen and (min-width: 768px) {
-  .authSection {
-    padding: 80px 115px;
-  }
+	.authSection {
+		padding: 80px 115px;
+		height: 899px;
+	}
 
-  .title {
-    margin-bottom: 20px;
-    font-size: 30px;
-  }
+	.title {
+		margin-bottom: 20px;
+		font-size: 30px;
+	}
 
-  .subtitle {
-    max-width: 535px;
-    font-size: 16px;
-    line-height: 2.25;
-  }
+	.subtitle {
+		max-width: 535px;
+		font-size: 16px;
+		line-height: 2.25;
+	}
 
-  .container {
-    max-width: 501px;
-    margin: 0 auto;
-    padding: 60px 32px;
-    font-size: 14px;
-  }
+	.container {
+		max-width: 501px;
+		margin: 0 auto;
+		padding: 60px 32px;
+		font-size: 14px;
+	}
 
-  .googleButton {
-    margin-left: 0;
-  }
+	.googleButton {
+		margin-left: 0;
+	}
 }
 
 @media screen and (min-width: 1280px) {
-  .authSection {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 98px 123px;
-  }
+	.authSection {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		padding: 98px 123px;
+		height: 724px
+	}
 
-  .title {
-    font-size: 34px;
-  }
+	.title {
+		font-size: 34px;
+	}
 
-  .subtitle {
-    margin-bottom: 0;
-    max-width: 420px;
-    font-size: 18px;
-    line-height: 2;
-  }
+	.subtitle {
+		margin-bottom: 0;
+		max-width: 420px;
+		font-size: 18px;
+		line-height: 2;
+	}
 }
