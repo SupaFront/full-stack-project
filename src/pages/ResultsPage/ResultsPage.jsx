@@ -12,12 +12,13 @@ import useLocalStorage from '../../shared/hooks/useLocalStorage';
 function ResultsPage() {
   const dispatch = useDispatch();
   const questionType = useSelector(getQuestionType);
-  const [answers, setAnswers] = useLocalStorage('answers', null);
+  const [answers, setAnswers] = useLocalStorage('resultTest', null);
   const [results, setResults] = useLocalStorage('results', null);
 
   useEffect(() => {
     const getStats = async () => {
       try {
+        console.log(answers);
         const data = await API.getResults({ questionType, answers });
         setResults(data);
         setAnswers(null);
