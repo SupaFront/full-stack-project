@@ -1,14 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  answers: [],
-  questions: [],
+  questionType: '',
 };
 
 const qaTests = createSlice({
   name: 'qaTests',
   initialState,
-  extraReducers: {},
+  reducers: {
+    setQuestType: (state, { payload }) => {
+      state.questionType = payload;
+    },
+  },
 });
-
+export const { setQuestType } = qaTests.actions;
 export default qaTests.reducer;

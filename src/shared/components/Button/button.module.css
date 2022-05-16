@@ -1,0 +1,87 @@
+@import "../../../styles/variables.css";
+
+.btn {
+  display: inline-block;
+  border: 2px solid transparent;
+  color: var(--secondary-background-color);
+  background-color: var(--accent-color);
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: var(--main-text-color);
+  background-color: var(--secondary-background-color);
+}
+
+.btnImgLeft,
+.btnImgRight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--secondary-background-color);
+  fill: var(--secondary-background-color);
+  background-color: var(--accent-color);
+  border: transparent;
+  cursor: pointer;
+}
+
+.btnImgRight {
+  flex-direction: row-reverse;
+}
+
+.btnImgLeft:hover,
+.btnImgRight:hover {
+  background-color: var(--secondary-background-color);
+  fill: var(--main-text-color);
+  color: var(--main-text-color);
+}
+
+.btnImgLeftDisabled {
+  composes: btnImgLeft;
+  background: var(--placeholder-color);
+}
+
+.btnImgRightDisabled {
+  composes: btnImgRight;
+  background: var(--placeholder-color);
+}
+
+.btnImgRightInvisible {
+  display: none;
+}
+
+@media screen and (min-width: 320px) {
+  .btn {
+    width: 130px;
+    padding: 17px 14px;
+    font-size: 10px;
+  }
+
+  .btnImgLeft,
+  .btnImgRight {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .btn {
+    width: 180px;
+    padding: 17px 30px;
+    font-size: 14px;
+  }
+
+  .btnImgLeft,
+  .btnImgRight,
+  .finishBtn {
+    display: flex;
+
+    width: 210px;
+    padding: 12px 30px;
+
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2%;
+    line-height: 1.17;
+  }
+}
+@media screen and (min-width: 1280px) {
+}
