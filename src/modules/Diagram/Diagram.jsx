@@ -1,21 +1,9 @@
-import { useEffect, useState } from 'react';
 import { PieChart, Pie, Tooltip, Cell } from 'recharts';
 import styles from './Diagram.module.css';
 
 const COLORS = ['#FF6B01', '#D7D7D7'];
 
 const RADIAN = Math.PI / 180;
-// const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-// 	const radius = innerRadius + (outerRadius - innerRadius) * 1.2;
-// 	const x = cx + radius * Math.cos(-midAngle * RADIAN);
-// 	const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-// 	return (
-// 		<text x={ x } y={ y } fill="#000000" textAnchor={ x > cx ? 'start' : 'end' } dominantBaseline="central" className={ styles.test }>
-// 			{ `${(percent * 100).toFixed(0)}%` }
-// 		</text>
-// 	);
-// };
 
 const renderCustomizedLabel = props => {
   const { cx, cy, midAngle, outerRadius, fill, percent } = props;
@@ -65,15 +53,15 @@ function Diagram({ data }) {
   return (
     <PieChart
       className={styles.pie}
-      width={window.screen.width >= 768 ? 600 : 320}
-      height={window.screen.width >= 768 ? 400 : 220}
+      width={window.screen.width >= 768 ? 700 : 320}
+      height={window.screen.width >= 768 ? 500 : 220}
     >
       <Pie
         dataKey="value"
-        isAnimationActive={true}
+        isAnimationActive={false}
         data={data}
-        cx={window.screen.width >= 768 ? 300 : 160}
-        cy={window.screen.width >= 768 ? 200 : 110}
+        cx={window.screen.width >= 768 ? 350 : 160}
+        cy={window.screen.width >= 768 ? 250 : 110}
         outerRadius={window.screen.width >= 768 ? 142.5 : 40}
         fill="#000"
         labelLine={false}
