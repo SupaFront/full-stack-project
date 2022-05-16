@@ -11,9 +11,9 @@ import API from "../../API/qa-test";
 import s from "./TestPage.module.css";
 
 import { getQuestionType } from "../../redux/qa-tests/qa-test-selectors";
+
 // import useLocalStorage from "../../shared/hooks/useLocalStorage";
 
-// const answersList = [];
 
 const testType = {
   tech: "[QA technical training_]",
@@ -33,18 +33,17 @@ let btnArrowRightDisabledFlag;
 let btnFinishTestStyle;
 
 const TestPage = () => {
-  const dispatch = useDispatch();
-  dispatch(setQuestionType(value));
-  
+
   const [testPageName, setTestPageName] = useState("[Testing theory_]");
   const [testQuestions, setTestQuestions] = useState([]);
   const [currentQuest, setCurrentQuest] = useState(0);
+
   // const [resultTest, setResultTest] = useLocalStorage("resultTest", null);
-  // const [path, setPath] = useLocalStorage("path", null);
   // const [currentQuestLS, setCurrentQuestLS] = useLocalStorage(
   //   "currentQuest",
   //   null
   // );
+ 
 
   const questionType = useSelector(getQuestionType);
 
@@ -54,9 +53,8 @@ const TestPage = () => {
     const savedResults = JSON.parse(localStorage.getItem("resultTest"));
     // const savedResults = resultTest;
 
-    const path = localStorage.getItem("path");
 
-    path ? setTestPageName(testType[path]) : setTestPageName("tech");
+    questionType ? setTestPageName(testType[questionType]) : setTestPageName("tech");
 
     const savedCurrentQuest = JSON.parse(localStorage.getItem("currentQuest"));
     // const savedCurrentQuest = currentQuest;
@@ -67,7 +65,7 @@ const TestPage = () => {
 
         const modifiedData = data.map((item) => ({ ...item, answer: "" }));
 
-        setTestQuestions(modifiedData); //for the last stage
+        setTestQuestions(modifiedData); 
 
         localStorage.setItem("resultTest", JSON.stringify(modifiedData));
         // setResultTest(modifiedData);
@@ -80,7 +78,7 @@ const TestPage = () => {
 
     if (!savedResults) {
       receiveQuests();
-    } else if (savedResults[0]?.questionType === path) {
+    } else if (savedResults[0]?.questionType === questionType) {
       setCurrentQuest(savedCurrentQuest);
       setTestQuestions(savedResults);
     } else {
@@ -142,11 +140,9 @@ const TestPage = () => {
 
   const localStorageClear = () => {
     // setCurrentQuestLS(null);
-    // setPath(null); ///////??????????????
     // setResultTest(null);
-    localStorage.removeItem('CurrentQuest');
-    localStorage.removeItem('Path');
-    localStorage.removeItem('resultTest');
+    localStorage.removeItem("currentQuest");
+    localStorage.removeItem("resultTest");
   };
 
   // setCurrentQuestLS(currentQuest);

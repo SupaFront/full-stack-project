@@ -3,15 +3,12 @@ import { Link } from 'react-router-dom';
 
 import GetSvg from '../../shared/components/GetSvg';
 
-import { getTests } from '../../redux/qa-tests/qa-test-operations';
-
 import s from './MainPage.module.css';
 import { setQuestType } from '../../redux/qa-tests/qa-test-slice';
 
 const MainPage = () => {
   const dispatch = useDispatch();
   const questionType = ['tech', 'theory'];
-  dispatch(getTests(questionType[0]));
 
   return (
     <div className={s.container}>
@@ -28,24 +25,16 @@ const MainPage = () => {
       <div className={s.linkWrapper}>
         <Link
           className={s.blackLink}
-          // to="/test/tech"
           to="/test"
-          onClick={() => {
-            localStorage.setItem('path', 'tech');
-            dispatch(setQuestType('tech'));
-          }}
+          onClick={()=>dispatch(setQuestType(questionType[0]))}
         >
           QA technical training
           <GetSvg name="arrow-right" width="24" height="16" className={'link'} />
         </Link>
         <Link
           className={s.orangeLink}
-          // to="/test/theory"
           to="/test"
-          onClick={() => {
-            localStorage.setItem('path', 'theory');
-            dispatch(setQuestType('theory'));
-          }}
+          onClick={()=>dispatch(setQuestType(questionType[1]))}
         >
           Testing theory
           <GetSvg name="arrow-right" width="24" height="16" className={'link'} />
