@@ -48,9 +48,7 @@
 
 .btnImgRightInvisible {
   display: none;
-};
-
-
+}
 
 @media screen and (min-width: 320px) {
   .btn {
@@ -63,7 +61,6 @@
   .btnImgRight {
     display: none;
   }
-
 }
 @media screen and (min-width: 768px) {
   .btn {
@@ -85,7 +82,6 @@
     letter-spacing: 2%;
     line-height: 1.17;
   }
-
 }
 @media screen and (min-width: 1280px) {
 }
