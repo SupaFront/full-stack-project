@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux';
 import { getCurrentUser } from './redux/auth/auth-operations';
 
 function App() {
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getCurrentUser());
@@ -22,6 +22,7 @@ function App() {
 			<Footer />
 		</div>
 	);
+
 }
 
 export default App;

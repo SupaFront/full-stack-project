@@ -1,26 +1,22 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
-import Button from "../../shared/components/Button";
-import ButtonArrowOnly from "../../shared/components/ButtonArrowOnly";
-import QuestForm from "../../shared/components/QuestForm";
+import Button from '../../shared/components/Button';
+import ButtonArrowOnly from '../../shared/components/ButtonArrowOnly';
+import QuestForm from '../../shared/components/QuestForm';
 
-import API from "../../API/qa-test";
+import API from '../../API/qa-test';
 
-import s from "./TestPage.module.css";
+import s from './TestPage.module.css';
 
-import { getQuestionType } from "../../redux/qa-tests/qa-test-selectors";
+import { getQuestionType } from '../../redux/qa-tests/qa-test-selectors';
 
-let isFinished = false;
-let text;
-let path;
-
-const answersList = [];
+// const answersList = [];
 
 const testType = {
-  tech: "[QA technical training_]",
-  theory: "[Testing theory_]",
+  tech: '[QA technical training_]',
+  theory: '[Testing theory_]',
 };
 
 let btnImgLeftStyle;
@@ -33,87 +29,123 @@ let btnImgRightStyle;
 let btnImgRightDisabledFlag;
 let btnArrowRightDisabledFlag;
 
+let btnFinishTestStyle;
+
 const TestPage = () => {
-  const [testPageName, setTestPageName] = useState("[Testing theory_]");
+  const [testPageName, setTestPageName] = useState('[Testing theory_]');
   const [testQuestions, setTestQuestions] = useState([]);
   const [currentQuest, setCurrentQuest] = useState(0);
 
   const questionType = useSelector(getQuestionType);
 
   useEffect(() => {
-    path = localStorage.getItem("path");
+    btnFinishTestStyle = s.btnFinishInvisible;
 
-    setTestPageName(testType[path]);
+    const savedResults = JSON.parse(localStorage.getItem("resultTest"));
+
+    const path = localStorage.getItem("path");
+
+    path ? setTestPageName(testType[path]) : setTestPageName("tech");
+
+    const savedCurrentQuest = JSON.parse(localStorage.getItem("currentQuest"));
+
+    // console.log(savedResults ? savedResults[0].questionType : null);
 
     const receiveQuests = async () => {
       try {
         const data = await API.getQuestions(questionType);
 
-        const modifiedData = data.map((item) => ({ ...item, answer: "" }));
+        const modifiedData = data.map(item => ({ ...item, answer: '' }));
 
-        setTestQuestions(modifiedData);
+        setTestQuestions(modifiedData); //for the last stage
+
+        localStorage.setItem("resultTest", JSON.stringify(modifiedData));
+
+        setCurrentQuest(0);
       } catch (err) {
         throw err;
       }
     };
 
-    receiveQuests();
+    if (!savedResults) {
+      receiveQuests();
+    } else if (savedResults[0]?.questionType === path) {
+      setCurrentQuest(savedCurrentQuest);
+      setTestQuestions(savedResults);
+    } else {
+      receiveQuests();
+    }
   }, []);
 
   const questCount = testQuestions?.length;
 
-  text = isFinished ? "Finish test" : "Cancel test";
-
-  path = isFinished ? "/results" : "/";
+  // console.log(questCount);
 
   if (!currentQuest) {
-    btnImgLeftStyle = "btnImgLeftDisabled";
-    btnArrowLeftStyle = "btnArrowLeftDisabled";
+    btnImgLeftStyle = 'btnImgLeftDisabled';
+    btnArrowLeftStyle = 'btnArrowLeftDisabled';
     btnImgLeftDisabledFlag = true;
     btnArrowLeftDisabledFlag = true;
   } else {
-    btnImgLeftStyle = "btnImgLeft";
-    btnArrowLeftStyle = "btnArrowLeft";
+    btnImgLeftStyle = 'btnImgLeft';
+    btnArrowLeftStyle = 'btnArrowLeft';
     btnImgLeftDisabledFlag = false;
     btnArrowLeftDisabledFlag = false;
   }
 
-  const isAnswered = answersList.findIndex((item) => {
-    return item?._id === testQuestions[currentQuest]._id;
-  });
-
-  console.log("isAnswered", isAnswered);
-
-  if (currentQuest + 1 === questCount) {
-    btnImgRightStyle = "btnImgRightDisabled";
-    btnArrowRightStyle = "btnArrowRightDisabled";
+  if (!testQuestions[currentQuest]?.answer) {
+    btnImgRightStyle = 'btnImgRightDisabled';
+    btnArrowRightStyle = 'btnArrowRightDisabled';
     btnImgRightDisabledFlag = true;
     btnArrowRightDisabledFlag = true;
   } else {
-    btnImgRightStyle = "btnImgRight";
-    btnArrowRightStyle = "btnArrowRight";
+    btnImgRightStyle = 'btnImgRight';
+    btnArrowRightStyle = 'btnArrowRight';
     btnImgRightDisabledFlag = false;
     btnArrowRightDisabledFlag = false;
   }
 
-  const handleChange = (answer) => {
+  if (currentQuest + 1 === questCount) {
+    btnImgRightStyle = 'btnImgRightInvisible';
+    btnArrowRightStyle = 'btnArrowRightInvisible';
+    btnFinishTestStyle = s.btnFinishDisabled;
+  }
+
+  if (currentQuest + 1 === questCount && testQuestions[currentQuest]?.answer) {
+    btnFinishTestStyle = s.btnFinish;
+  }
+
+  const handleChange = answer => {
     testQuestions[currentQuest].answer = answer;
     setTestQuestions([...testQuestions]);
-<<<<<<< Updated upstream
 
-    const resultTest = testQuestions.map(({ _id, answer }) => ({ id: _id, answer }));
-=======
-    resultTest = testQuestions.map(({ _id, answer }) => ({ id: _id, answer }));
->>>>>>> Stashed changes
-    localStorage.setItem("resultTest", JSON.stringify(resultTest));
+    localStorage.setItem("resultTest", JSON.stringify(testQuestions));
   };
+
+  const increment = () => {
+    setCurrentQuest(currentQuest + 1);
+
+  };
+
+  const decrement = () => {
+    setCurrentQuest(currentQuest - 1);
+  };
+
+  localStorage.setItem("currentQuest", currentQuest);
 
   return (
     <div className={s.container}>
       <div className={s.wrapper}>
         <h2 className={s.title}>{testPageName}</h2>
-        <NavLink to={path} className={s.btn}>
-          {text}
+        <NavLink
+          to={"/"}
+          className={s.btn}
+          onClick={() => {
+            // localStorage.removeItem("resultTest");
+            localStorage.clear();
+          }}
+        >
+          {"Cancel test"}
         </NavLink>
       </div>
       <QuestForm
@@ -125,39 +157,53 @@ const TestPage = () => {
         <Button
           text="Previous question"
           img={true}
-          imgName={"arrow-left"}
+          imgName={'arrow-left'}
           width={24}
           height={16}
           styles={btnImgLeftStyle}
           disabled={btnImgLeftDisabledFlag}
-          onClick={() => setCurrentQuest(currentQuest - 1)}
+          onClick={() => {
+            decrement();
+          }}
         />
         <Button
           text="Next question"
           img={true}
-          imgName={"arrow-right"}
+          imgName={'arrow-right'}
           width={24}
           height={16}
           styles={btnImgRightStyle}
           disabled={btnImgRightDisabledFlag}
-          onClick={() => setCurrentQuest(currentQuest + 1)}
+          onClick={() => {
+            increment();
+          }}
         />
         <ButtonArrowOnly
-          imgName={"arrow-left"}
+          imgName={'arrow-left'}
           width={24}
           height={16}
           styles={btnArrowLeftStyle}
           disabled={btnArrowLeftDisabledFlag}
-          onClick={() => setCurrentQuest(currentQuest - 1)}
+          onClick={() => {
+            decrement();
+          }}
         />
         <ButtonArrowOnly
-          imgName={"arrow-right"}
+          imgName={'arrow-right'}
           width={24}
           height={16}
           styles={btnArrowRightStyle}
           disabled={btnArrowRightDisabledFlag}
-          onClick={() => setCurrentQuest(currentQuest + 1)}
+          onClick={() => {
+            increment();
+          }}
         />
+        <NavLink
+          to={testQuestions[currentQuest]?.answer ? '/results' : '#'}
+          className={btnFinishTestStyle}
+        >
+          {'Finish test'}
+        </NavLink>
       </div>
     </div>
   );

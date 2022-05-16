@@ -1,13 +1,8 @@
-import RadioButtonsList from "../RadioButtonsList/RadioButtonsList";
+import RadioButtonsList from '../RadioButtonsList/RadioButtonsList';
 
-import s from "./questForm.module.css";
+import s from './QuestForm.module.css';
 
-const QuestForm = ({
-  currentQuest,
-  maxCount,
-  testQuestions,
-  onChange,
-}) => {
+const QuestForm = ({ currentQuest, maxCount, testQuestions, onChange }) => {
   maxCount = testQuestions?.length;
   return (
     <div>
@@ -23,7 +18,6 @@ const QuestForm = ({
       </form>
     </div>
   );
-
 };
 
 export default QuestForm;

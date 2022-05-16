@@ -83,7 +83,6 @@
   line-height: 1.17;
   font-size: 14px;
   font-weight: 400;
-  text-justify: center;
   margin-top: 20px;
 }
 .btn:hover {
@@ -148,11 +147,10 @@
     line-height: 1.17;
     font-size: 14px;
     font-weight: 500;
-    text-justify: center;
   }
 }
 
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 1280px) {
   .container {
     padding-top: 42px;
     padding-bottom: 65px;
