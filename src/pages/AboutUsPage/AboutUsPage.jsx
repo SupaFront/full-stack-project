@@ -8,7 +8,7 @@ function AboutUsPage() {
   return (
     <section className={styles.aboutUsSection}>
       <div className={styles.titleContainer}>
-        <h2 className={styles.title}>Out team</h2>
+        <h2 className={styles.title}>Our team</h2>
       </div>
       <ul className={styles.teamList}>
         <li className={styles.teamItem}>
@@ -23,13 +23,7 @@ function AboutUsPage() {
           </div>
         </li>
         <li className={styles.teamItem}>
-          <img
-            src={vlad}
-            alt="ScrumMaster"
-            className={styles.image}
-            width={280}
-            height={300}
-          />
+          <img src={vlad} alt="ScrumMaster" className={styles.image} width={280} height={300} />
           <div className={styles.info}>
             <h3 className={styles.name}>Vladimir</h3>
             <p className={styles.position}>Scrum Master Developer</p>
