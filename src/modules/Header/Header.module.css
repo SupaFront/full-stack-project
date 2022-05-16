@@ -21,7 +21,7 @@
 }
 
 .hamburgerContainer {
-  display: auto;
+  display: block;
 }
 
 .hamburgerContainer::before {
