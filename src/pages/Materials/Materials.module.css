@@ -3,7 +3,7 @@
 	height: 445px;
 	background-image: url("../../images/materials/cactus-mobile.png");
 	background-repeat: no-repeat;
-	background-position: -311px 0px;
+	background-position: -311px -0px;
 }
 
 .titleContainer {
@@ -53,6 +53,12 @@
 	color: var(--accent-color);
 }
 
+@media screen and (min-width: 555px){
+	.materialsSection {
+		background-position: top right;
+	}
+}
+
 @media (min-device-pixel-ratio: 2),
 (min-resolution: 192dpi),
 (min-resolution: 2dppx) {
@@ -67,7 +73,7 @@
 		height: 899px;
 		padding: 249px 32px;
 		background-image: url("../../images/materials/cactus-tablet.png");
-		background-position: -832px -161px;
+		background-position: top right;
 	}
 
 	.titleContainer {
@@ -99,7 +105,7 @@
 		height: 726px;
 		padding: 100px 123px;
 		background-image: url("../../images/materials/cactus-desctop.png");
-		background-position: 0px 0px;
+		/* background-position: 0px 0px; */
 	}
 
 	.title::after {

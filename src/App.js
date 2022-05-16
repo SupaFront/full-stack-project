@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './modules/Header/Header';
-import ResultsPage from './pages/ResultsPage';
+
 import MyRoutes from './Routes';
 import Footer from './modules/Footer';
 import { useEffect } from 'react';
@@ -19,7 +19,6 @@ function App() {
     <div className="App">
       <Header />
       <MyRoutes />
-      {/* <ResultsPage /> */}
       <Footer />
     </div>
   );

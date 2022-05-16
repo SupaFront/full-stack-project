@@ -66,7 +66,7 @@ function ResultsPage() {
           <p className={styles.secondarymessage}>{results?.secondaryMessage}</p>
           <Link
             className={styles.btn}
-            to="/"
+            to="/test"
             onClick={() => {
               setResults(null);
               setQuests(null);
