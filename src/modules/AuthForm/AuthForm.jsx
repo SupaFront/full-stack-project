@@ -37,7 +37,7 @@ function AuthForm() {
 
 			case 'signUp':
 				dispatch(registerUser(props.values));
-				!error && setIsRegistered(true);
+				setIsRegistered(true);
 				break;
 
 			default:
@@ -74,7 +74,9 @@ function AuthForm() {
 					) }
 
 					{ isRegistered && (
-						<p className={ styles.sorryText }>Please, sign in to visit the site</p>
+						<p className={ styles.sorryText }>
+							Registration is successful. Please, sign in to visit the site.
+						</p>
 					) }
 
 					<div className={ styles.buttonContainer }>
