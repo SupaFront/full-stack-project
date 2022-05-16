@@ -12,7 +12,7 @@ import s from './TestPage.module.css';
 
 import { getQuestionType } from '../../redux/qa-tests/qa-test-selectors';
 
-const answersList = [];
+// const answersList = [];
 
 const testType = {
   tech: '[QA technical training_]',
@@ -41,9 +41,15 @@ const TestPage = () => {
   useEffect(() => {
     btnFinishTestStyle = s.btnFinishInvisible;
 
-    const path = localStorage.getItem('path');
+    const savedResults = JSON.parse(localStorage.getItem("resultTest"));
 
-    setTestPageName(testType[path]);
+    const path = localStorage.getItem("path");
+
+    path ? setTestPageName(testType[path]) : setTestPageName("tech");
+
+    const savedCurrentQuest = JSON.parse(localStorage.getItem("currentQuest"));
+
+    // console.log(savedResults ? savedResults[0].questionType : null);
 
     const receiveQuests = async () => {
       try {
@@ -51,16 +57,29 @@ const TestPage = () => {
 
         const modifiedData = data.map(item => ({ ...item, answer: '' }));
 
-        setTestQuestions(modifiedData);
+        setTestQuestions(modifiedData); //for the last stage
+
+        localStorage.setItem("resultTest", JSON.stringify(modifiedData));
+
+        setCurrentQuest(0);
       } catch (err) {
         throw err;
       }
     };
 
-    receiveQuests();
+    if (!savedResults) {
+      receiveQuests();
+    } else if (savedResults[0]?.questionType === path) {
+      setCurrentQuest(savedCurrentQuest);
+      setTestQuestions(savedResults);
+    } else {
+      receiveQuests();
+    }
   }, []);
 
   const questCount = testQuestions?.length;
+
+  // console.log(questCount);
 
   if (!currentQuest) {
     btnImgLeftStyle = 'btnImgLeftDisabled';
@@ -100,20 +119,33 @@ const TestPage = () => {
     testQuestions[currentQuest].answer = answer;
     setTestQuestions([...testQuestions]);
 
-    const resultTest = testQuestions.map(({ _id, answer }) => ({
-      id: _id,
-      answer,
-    }));
-
-    localStorage.setItem('resultTest', JSON.stringify(resultTest));
+    localStorage.setItem("resultTest", JSON.stringify(testQuestions));
   };
+
+  const increment = () => {
+    setCurrentQuest(currentQuest + 1);
+
+  };
+
+  const decrement = () => {
+    setCurrentQuest(currentQuest - 1);
+  };
+
+  localStorage.setItem("currentQuest", currentQuest);
 
   return (
     <div className={s.container}>
       <div className={s.wrapper}>
         <h2 className={s.title}>{testPageName}</h2>
-        <NavLink to={'/'} className={s.btn}>
-          {'Cancel test'}
+        <NavLink
+          to={"/"}
+          className={s.btn}
+          onClick={() => {
+            // localStorage.removeItem("resultTest");
+            localStorage.clear();
+          }}
+        >
+          {"Cancel test"}
         </NavLink>
       </div>
       <QuestForm
@@ -130,7 +162,9 @@ const TestPage = () => {
           height={16}
           styles={btnImgLeftStyle}
           disabled={btnImgLeftDisabledFlag}
-          onClick={() => setCurrentQuest(currentQuest - 1)}
+          onClick={() => {
+            decrement();
+          }}
         />
         <Button
           text="Next question"
@@ -140,7 +174,9 @@ const TestPage = () => {
           height={16}
           styles={btnImgRightStyle}
           disabled={btnImgRightDisabledFlag}
-          onClick={() => setCurrentQuest(currentQuest + 1)}
+          onClick={() => {
+            increment();
+          }}
         />
         <ButtonArrowOnly
           imgName={'arrow-left'}
@@ -148,7 +184,9 @@ const TestPage = () => {
           height={16}
           styles={btnArrowLeftStyle}
           disabled={btnArrowLeftDisabledFlag}
-          onClick={() => setCurrentQuest(currentQuest - 1)}
+          onClick={() => {
+            decrement();
+          }}
         />
         <ButtonArrowOnly
           imgName={'arrow-right'}
@@ -156,7 +194,9 @@ const TestPage = () => {
           height={16}
           styles={btnArrowRightStyle}
           disabled={btnArrowRightDisabledFlag}
-          onClick={() => setCurrentQuest(currentQuest + 1)}
+          onClick={() => {
+            increment();
+          }}
         />
         <NavLink
           to={testQuestions[currentQuest]?.answer ? '/results' : '#'}
