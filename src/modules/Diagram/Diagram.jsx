@@ -50,19 +50,17 @@ const renderCustomizedLabel = props => {
 };
 
 function Diagram({ data }) {
+  const desktop = window.innerWidth >= 768;
+
   return (
-    <PieChart
-      className={styles.pie}
-      width={window.screen.width >= 768 ? 700 : 320}
-      height={window.screen.width >= 768 ? 500 : 220}
-    >
+    <PieChart className={styles.pie} width={desktop ? 700 : 320} height={desktop ? 500 : 260}>
       <Pie
         dataKey="value"
         isAnimationActive={false}
         data={data}
-        cx={window.screen.width >= 768 ? 350 : 160}
-        cy={window.screen.width >= 768 ? 250 : 110}
-        outerRadius={window.screen.width >= 768 ? 142.5 : 40}
+        cx={desktop ? 350 : 160}
+        cy={desktop ? 250 : 130}
+        outerRadius={desktop ? 142.5 : 40}
         fill="#000"
         labelLine={false}
         label={renderCustomizedLabel}
