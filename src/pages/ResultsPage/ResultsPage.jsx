@@ -1,40 +1,40 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Diagram from '../../modules/Diagram/';
-import { clearQuestionsList } from '../../redux/qa-tests/qa-test-slice';
 import styles from './ResultsPage.module.css';
 import catImage from '../../images/cat.png';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getQuestionType } from '../../redux/qa-tests/qa-test-selectors';
 import API from '../../API/qa-test';
 import useLocalStorage from '../../shared/hooks/useLocalStorage';
 
 function ResultsPage() {
-  const dispatch = useDispatch();
   const questionType = useSelector(getQuestionType);
-  const [answers, setAnswers] = useLocalStorage('resultTest', null);
+  const [quests, setQuests] = useLocalStorage('resultTest', null);
   const [results, setResults] = useLocalStorage('results', null);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const getStats = async () => {
+      setResults(null);
       try {
-        console.log(answers);
+        const answers = quests.map(item => ({
+          _id: item._id,
+          answer: item.answer,
+        }));
         const data = await API.getResults({ questionType, answers });
         setResults(data);
-        setAnswers(null);
+        setQuests(null);
+        setLoaded(true);
       } catch (error) {
         throw error;
       }
     };
-    answers && getStats();
-  });
+    quests && getStats();
+  }, []);
 
-  // const { mainMessage = '', secondaryMessage = '', correctAnswers = 0 } = results;
-  const data = [
-    { value: results?.correctAnswers, name: `Correct` },
-
-    { value: 12 - results?.correctAnswers, name: `Incorrect` },
-  ];
+  const correct = results?.correctAnswers;
+  const incorrect = results?.totalQuestions - results?.correctAnswers;
 
   return (
     <main>
@@ -43,14 +43,21 @@ function ResultsPage() {
         <div className={styles.titleContainer}>
           <h2 className={styles.title}>
             {questionType === 'theory' && '[ TESTING THEORY_]'}
-            {questionType === 'theory' && '[QA technical training_]'}
+            {questionType === 'tech' && '[QA technical training_]'}
           </h2>
         </div>
-        <Diagram data={data} />
+        {loaded && (
+          <Diagram
+            data={[
+              { value: correct, name: 'Correct' },
+              { value: incorrect, name: 'Incorrect' },
+            ]}
+          />
+        )}
         <div>
           <div className={styles.statscontainer}>
             <span className={styles.stats}>Correct answers - {results?.correctAnswers}</span>
-            <span className={styles.stats}>Total questions - 12</span>
+            <span className={styles.stats}>Total questions - {results?.totalQuestions}</span>
           </div>
         </div>
         <div className={styles.lowestsect}>
@@ -59,9 +66,12 @@ function ResultsPage() {
           <p className={styles.secondarymessage}>{results?.secondaryMessage}</p>
           <Link
             className={styles.btn}
-            to="/test"
-            // onClick={() =>
-            // }}
+            to="/"
+            onClick={() => {
+              setResults(null);
+              setQuests(null);
+              localStorage.setItem('currentQuest');
+            }}
           >
             Try again
           </Link>

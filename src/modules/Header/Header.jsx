@@ -3,23 +3,24 @@ import { useState } from 'react';
 import Hamburger from 'hamburger-react';
 
 import useAuth from '../../shared/hooks/useAuth';
-import { logOutUser } from "../../redux/auth/auth-operations";
+import { logOutUser } from '../../redux/auth/auth-operations';
 
 import Logo from './Logo';
 import Navigation from './Navigation';
-import UserInfo from "./UserInfo";
+import UserInfo from './UserInfo';
 import Modal from '../../shared/components/Modal';
 import GetSvg from '../../shared/components/GetSvg';
 import styles from './Header.module.css';
 
 function Header() {
-	const dispatch = useDispatch();
-	const isLoggedIn = useAuth();
-	const [ isOpen, setOpen ] = useState(false);
+  const dispatch = useDispatch();
+  const isLoggedIn = useAuth();
+  const [isOpen, setOpen] = useState(false);
 
-	const onHandleClick = () => {
-		dispatch(logOutUser());
-	};
+  const onHandleClick = () => {
+    dispatch(logOutUser());
+    localStorage.clear();
+  };
 
 	const onHandleCloseMenu = () => {
 		setOpen(false);
@@ -60,6 +61,7 @@ function Header() {
 			) }
 		</header>
 	);
+
 }
 
 export default Header;
