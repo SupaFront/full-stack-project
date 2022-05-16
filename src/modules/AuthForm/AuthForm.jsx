@@ -1,5 +1,104 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Formik, Form } from 'formik';
+
+import { authValidationSchema } from '../../utils/authValidationSchema';
+import { registerUser, logInUser } from '../../redux/auth/auth-operations';
+import { getError } from "../../redux/auth/auth-selectors";
+
+import FormikInput from '../../shared/components/FormikInput';
+
+import styles from './AuthForm.module.css';
+
+const initialValues = {
+	email: '',
+	password: '',
+};
+
 function AuthForm() {
-  return <div>AuthForm</div>;
+	const dispatch = useDispatch();
+	const error = useSelector(getError);
+	const [ isRegistered, setIsRegistered ] = useState(false);
+
+	const onHandleClick = (string, props) => {
+		if (!props.values.email || !props.values.password) {
+			return props.setTouched({ ...props.touched, [ "email" ]: true, [ "password" ]: true });
+		};
+
+		if (!props.isValid) {
+			return;
+		}
+
+		switch (string) {
+			case 'signIn':
+				dispatch(logInUser(props.values));
+				setIsRegistered(false);
+				break;
+
+			case 'signUp':
+				dispatch(registerUser(props.values));
+				setIsRegistered(true);
+				break;
+
+			default:
+				return;
+		}
+		props.resetForm(initialValues);
+	};
+
+	return (
+		<Formik
+			initialValues={ initialValues }
+			validationSchema={ authValidationSchema }
+			onSubmit={ () => { } }
+		>
+			{ formikProps => (
+				<Form className={ styles.form }>
+					<FormikInput
+						name="email"
+						type="text"
+						placeholder="E-mail"
+						inputClassName={ styles.field }
+						errorClassName={ styles.error }
+					/>
+					<FormikInput
+						name="password"
+						type="password"
+						placeholder="Password"
+						inputClassName={ styles.field }
+						errorClassName={ styles.error }
+					/>
+
+					{ error && error !== "Not authorized" && (
+						<p className={ styles.sorryText }>{ error }</p>
+					) }
+
+					{ isRegistered && (
+						<p className={ styles.sorryText }>
+							Registration is successful. Please, sign in to visit the site.
+						</p>
+					) }
+
+					<div className={ styles.buttonContainer }>
+						<button
+							type="button"
+							className={ styles.signin }
+							onClick={ () => onHandleClick('signIn', formikProps) }
+						>
+							Sign in
+						</button>
+						<button
+							type="button"
+							onClick={ () => onHandleClick('signUp', formikProps) }
+							className={ styles.signup }
+						>
+							Sign up
+						</button>
+					</div>
+				</Form>
+			) }
+		</Formik>
+	);
 }
 
 export default AuthForm;

@@ -1,11 +1,13 @@
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from "react-router-dom";
 
-import useAuth from '../../hooks/useAuth';
+import useAuth from "../../hooks/useAuth";
 
 const PublicRoute = () => {
-  const isLogggedIn = useAuth();
+  const isLoggedIn = useAuth();
+  
+  // isLoggedIn = true;//only for tests
 
-  if (isLogggedIn) {
+  if (isLoggedIn) {
     return <Navigate to="/" />;
   }
   return <Outlet />;

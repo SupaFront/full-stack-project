@@ -1,1 +1,1 @@
-export const getQuestions = state => state.qaTests.questions;
+export const getQuestionType = state => state.qaTests.questionType;

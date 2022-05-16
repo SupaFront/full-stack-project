@@ -1,0 +1,58 @@
+.footerSection {
+	padding: 10px 0;
+	text-align: center;
+	background-color: var(--third-background-color);
+	font-weight: 400;
+	letter-spacing: 0.03em;
+	color: var(--footer-text-color);
+	height: 56px;
+}
+
+.common {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container:not(:last-child) {
+	margin-right: 17px;
+}
+
+.container:not(:last-child) span::after {
+	position: absolute;
+	right: -8px;
+	content: "";
+	width: 1px;
+	height: 13.5px;
+	background-color: var(--footer-text-color);
+}
+
+.teamLink {
+	font-family: inherit;
+	color: var(--footer-text-color);
+	text-decoration: underline;
+}
+
+.teamLink:hover,
+.teamLink:focus {
+	color: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) {
+	.footerSection {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.heart {
+		margin-right: 8px;
+	}
+}
